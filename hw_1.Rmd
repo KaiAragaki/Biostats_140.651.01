@@ -1,0 +1,277 @@
+---
+title: "BST 140.651 Problem Set 1"
+author: "Kai Aragaki"
+date: "9/10/2020"
+output: 
+    tufte::tufte_html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Problem 1. Show the following
+
+## $a.\space P(\emptyset) = 0.$
+
+-----------------------------------
+
+$\Omega = \emptyset \cup \Omega$
+
+$P(\Omega)=P(\emptyset\cup\Omega)$
+
+```{marginfigure}
+Because $\emptyset\cap\Omega=\emptyset$ (ie the two sets are non-overlapping)
+```
+$P(\emptyset\cup\Omega)=P(\emptyset)+P(\Omega)$
+
+So,
+
+$P(\Omega)=P(\emptyset)+P(\Omega)$
+
+Since $P(\Omega)=1$,
+
+$1=P(\emptyset)+1$
+
+And solving for $P(\emptyset)$ we have:
+```{marginfigure}
+$\blacksquare$
+```
+$P(\emptyset)=0$
+
+## b. $P(E) = 1 - P(E^c).$
+
+---------------------------------
+
+$1 = P(\Omega)$
+
+$1 = P(E\cup E^c)$
+
+```{marginfigure}
+Because $E\cap E^c = \emptyset$
+```
+
+$1 = P(E) + P(E^c)$
+
+Solving for $P(E)$,
+
+$P(E) = 1 - P(E^c)$
+```{marginfigure}
+$\blacksquare$
+```
+
+## c. $\mathrm{if}\space A\subset B, \mathrm{then}\space P(A)\le P(B)$
+
+---------------------------------
+
+If $A\subset B$,
+
+$B = A \cup(A^c\cap B)$
+
+$P(B)=P(A\cup (A^c\cap B))$
+
+```{marginfigure}
+Because $A\cap (A^c\cap B) = \emptyset$
+```
+
+$P(B)=P(A) + P(A^c\cap B))$
+
+$P(B)-P(A)=P(A^c\cap B)$
+
+We know that 
+
+$P(A^c \cap B) \ge 0$
+
+because
+
+$0 \le P(E) \le 1$
+
+therefore,
+
+$P(B) - P(A) \ge 0$
+
+Solving for $P(B)$ we arrive at
+
+$P(B) \ge P(A)$
+```{marginfigure}
+$\blacksquare$
+```
+
+## d. $P(A\cup B) = P(A) + P(B) - P(A\cap B)$
+
+---------------------------------
+
+$A = A\cap\Omega = A\cap(B\cup B^c) = (A\cap B)\cup(A\cap B^c)$
+
+taking the probability of both sides,
+
+$P(A) = P((A\cap B)\cup(A\cap B^c))$
+
+Because $(A\cap B)\cap(A\cap B^c)=\emptyset$,
+
+$P(A) = P(A\cap B)+P(A\cap B^c)$
+
+By the same logic, 
+
+$P(B) = P(A\cap B)+P(B\cap A^c)$
+
+We can substitute these into the first equation, giving
+
+$P(A\cup B) = P(A\cap B)+P(A\cap B^c) + P(A\cap B)+P(B\cap A^c) - P(A\cap B)$
+
+Simplifying, 
+
+$P(A\cup B) = P(A\cap B^c) + P(A\cap B)+P(B\cap A^c)$
+
+Since we know that the sum of probabilities of two disjoint sets is equal to probability of their union, and we know $(A\cap B) \cap (A \cap B^c) = \emptyset$, so this is equivalent to
+
+$P((A\cap B^c)\cup(A\cap B)) + P(B\cap A^c)$
+
+and by the distributive property,
+
+$P(A\cap (B\cup B^c))+P(B\cap A^c)$
+
+Which simplifies to
+
+$P(A) + P(B\cap A^c)$
+
+We know that $A \cap (B\cap A^c) = \emptyset$ because $A \cap A^c = \emptyset$ and $(B\cap A^c) \subset A^c$. 
+
+So, $P(A \cup (B\cap A^c))$
+
+which again by the distributive property,
+
+$P((A \cup B)) \cap(A\cup A^c))$
+
+and,
+
+$P((A\cup B))\cap\Omega) = P(A \cup B)$
+```{marginfigure}
+$\blacksquare$
+```
+
+## e. $P(A\cup B) = 1-P(A^c\cap B^c)$
+
+---------------------------------
+
+$1 = P(\Omega) = P((A \cup B) \cup (A\cup B)^c)$
+
+Given the sets are disjoint,
+
+$P((A \cup B) \cup (A\cup B)^c) = P(A \cup B) + P(A\cup B)^c$
+
+By Demorgan's law,
+
+$P(A \cup B) + P(A\cup B)^c = P(A \cup B) + P(A^c\cap B^c)$
+
+Substituting this into the statement we intend to prove,
+
+$P(A\cup B) = P(A\cup B) + P(A^c\cap B^c) - P(A^c\cap B^c)$
+
+
+$P(A\cup B) = P(A\cup B)$
+```{marginfigure}
+$\blacksquare$
+```
+
+## f. $P(A\cap B^c) = P(A)-P(A\cap B)$
+
+---------------------------------
+
+Rearranging the above, we note
+
+$P(A\cap B^c) + P(A\cap B) = P(A)$
+
+Since $(A\cap B^c) \cap (A\cap B) = \emptyset$,
+
+$P((A\cap B^c)\cup (A\cap B)) = P(A)$
+
+Which by the distributive property is equal to
+
+$P(A\cap (B^c\cup B))) = P(A \cap \Omega) = P(A)$
+```{marginfigure}
+$\blacksquare$
+```
+
+## g. $P(\cup^n_{i=1}E_i)\le \Sigma^n_{i=1}P(E_i))$
+
+---------------------------------
+
+Proof by induction, starting with the case $n = 2$.
+
+We know that
+
+$P(E_1\cup E_2) = P(E_1) + P(E_2) - P(E_1\cap E_2)$
+```{marginfigure}
+see proof d
+```
+And since
+$P(E_1) + P(E_2) = \Sigma^2_{i=1}P(E_i)$
+
+by substitution we get
+
+$P(E_1\cup E_2) = \Sigma^2_{i=1}P(E_i) - P(E_1\cap E_2)$
+
+Since the probability of any even must be greater than or equal to zero, the right hand side of the equation (and by definition the left) *must* be less than or equal to $\Sigma^2_{i=1}P(E_i)$ itself! So,
+
+$P(E_1\cup E_2) \le \Sigma^2_{i=1}P(E_i)$
+
+Since we have proven our statement for n = 2, let us assume it true for n-1:
+
+$P(\cup^{n-1}_{i=1}E_i) \le \Sigma^{n-1}_{i=1}P(E_i)$
+
+Then for n,
+
+$P(\cup^{n}_{i=1}E_i) = P(E_n)\cup P(\cup^{n-1}_{i=1}E_i)$
+
+We notice that this is structurally identical to that which we proved above, where $P(E_1) = P(E_n)$ and $P(E_2) = P(\cup^{n-1}_{i=1}E_i)$. Following the same proof we find
+
+$P(\cup^n_{i=1}E_i)\le \Sigma^n_{i=1}P(E_i))$
+```{marginfigure}
+$\blacksquare$
+```
+
+## h. $P(\cup^n_{i=1}E_i)\ge max_i\space P(E_i)$
+
+---------------------------------
+
+For proof by induction, begin with n = 2:
+
+$P(E_1\cup E_2) = P(E_1) + P(E_2) - P(E_1\cap E_2)$
+```{marginfigure}
+proof d
+```
+
+If we suppose $P(E_1) = max_iP(E_i)$, then this is
+
+$P(E_1) + P(E_2) - P(E_1\cap E_2) \ge P(E_1)$
+
+Which we can simplify to
+
+$P(E_2) \ge P(E_1\cap E_2)$
+
+which we know to be true
+```{marginfigure}
+proof c
+```
+
+We now consider the case for n-1 to be true:
+
+$P(\cup^{n-1}_{i=1}E_i) \ge max_i\space P(E_i)$
+
+and evaluate the truth of n:
+
+$P(E_n)\cup P(\cup^{n-1}_{i=1}E_i) \ge max_i\space P(E_i)$
+
+Like proof g, we can state that
+
+$P(E_n)$ is analogous to $P(E_1)$
+
+and
+
+$P(\cup^{n-1}_{i=1}E_i)$ is analgous to $P(E_2)$, 
+
+at which point this is a statement we have already proved
+```{marginfigure}
+$\blacksquare$
+```
