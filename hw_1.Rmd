@@ -275,3 +275,60 @@ at which point this is a statement we have already proved
 ```{marginfigure}
 $\blacksquare$
 ```
+
+# Problem 2
+
+Cryptosporidium is a pathogen that can cause gastrointestinal illness with diarrhea; infections can lead to death in individuals with a weakened immune system. During a recent outbreak of cryptosporidiosis in 21% of two parent families at least one of the parents has contracted the disease. In 9% of the families the father has contracted cryptosporidiosis while in 5% of the families both the mother and father have contracted cryptosporidiosis.
+
+## a. What event does the probability one minus the probability that both have contracted cryptosporidiosis represent?
+
+------------------------------------------------------------------
+
+**The probability that one or fewer parents in a two parent family contracted the disease**
+
+## b. What’s the probability that either the mother or the father has contracted cryptosporidiosis?
+
+------------------------------------------------------------------
+
+21%, if by this we include the possibility of the mother AND father having contracted cryptosporidiosis
+If we do not include the possibility of the mother AND father, it is $P(father\cup mother)-P(father\cap mother)$ which is 21%-5%, or 
+
+**16%**
+
+## c. What’s the probability that the mother has contracted cryptosporidiosis but the father has not?
+
+------------------------------------------------------------------
+
+We can solve for $P(mother)$ first with knowledge that
+
+$P(father\cup mother)= P(father) + P(mother) - P(father\cap mother)$
+
+Substituting in our given values,
+
+$21\% = 9\% + P(mother) - 5\%$
+
+which solving for $P(mother)$ gives 17%. Subtracting the intersect gives
+
+**12%**
+
+## d. What’s the probability that the mother has contracted cryptosporidiosis?
+
+------------------------------------------------------------------
+
+This was calculated above to be
+
+**17%**
+
+## e. What’s the probability that neither the mother nor the father has contracted cryptosporidiosis?
+
+------------------------------------------------------------------
+
+100% - 21% = **79%**
+
+## f. What’s the probability that the mother has contracted cryptosporidiosis but the father has not?
+
+------------------------------------------------------------------
+
+**Identical to problem c**
+
+# Problem 3
