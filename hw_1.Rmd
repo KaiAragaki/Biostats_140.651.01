@@ -3,7 +3,14 @@ title: "BST 140.651 Problem Set 1"
 author: "Kai Aragaki"
 date: "9/10/2020"
 output: 
-    tufte::tufte_html
+        tufte::tufte_html: default
+        tufte::tufte_handout: default
+header-includes:
+   - \setlength\parindent{0pt}
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding,
+  output_dir = "output", output_format = "all") })
+
 ---
 
 ```{r setup, include=FALSE}
@@ -17,8 +24,7 @@ library(tidyverse)
 
 -----------------------------------
 
-$\Omega = \emptyset \cup \Omega$
-
+$\Omega = \emptyset \cup \Omega$  
 $P(\Omega)=P(\emptyset\cup\Omega)$
 
 ```{marginfigure}
@@ -118,13 +124,16 @@ $P(B) = P(A\cap B)+P(B\cap A^c)$
 
 We can substitute these into the first equation, giving
 
-$P(A\cup B) = P(A\cap B)+P(A\cap B^c) + P(A\cap B)+P(B\cap A^c) - P(A\cap B)$
+$P(A\cap B)+P(A\cap B^c) + P(A\cap B)+P(B\cap A^c) - P(A\cap B)$
 
 Simplifying, 
 
 $P(A\cup B) = P(A\cap B^c) + P(A\cap B)+P(B\cap A^c)$
 
-Since we know that the sum of probabilities of two disjoint sets is equal to probability of their union, and we know $(A\cap B) \cap (A \cap B^c) = \emptyset$, so this is equivalent to
+Since we know that the sum of probabilities of two disjoint sets is equal to probability of their union, and we know
+$(A\cap B) \cap (A \cap B^c) = \emptyset$
+
+so this is equivalent to
 
 $P((A\cap B^c)\cup(A\cap B)) + P(B\cap A^c)$
 
@@ -136,9 +145,21 @@ Which simplifies to
 
 $P(A) + P(B\cap A^c)$
 
-We know that $A \cap (B\cap A^c) = \emptyset$ because $A \cap A^c = \emptyset$ and $(B\cap A^c) \subset A^c$. 
+We know that 
 
-So, $P(A \cup (B\cap A^c))$
+$A \cap (B\cap A^c) = \emptyset$ 
+
+because 
+
+$A \cap A^c = \emptyset$ 
+
+and 
+
+$(B\cap A^c) \subset A^c$. 
+
+So, 
+
+$P(A \cup (B\cap A^c))$
 
 which again by the distributive property,
 
@@ -435,4 +456,73 @@ Here the 95% is 0.95 (lower tail) - that is, in the context of this problem, 95%
 This seems unlikely to me. In the real world there are given subpopulations that tend to have similar amounts of clusters (tending more towards a collection of gaussians vs a completely smooth uniform distribution). Intuitively it also seems strange that one could have 0 freckles just as probably as one could have 1 freckle - it seems more likely that if one has one freckle, there are probably more.
 
 
+
+# Problem 6
+
+------------------------------------------------------------------
+
+## a
+
+------------------------------------------------------------------
+
+A random variable $U$ is passed to a function $F^{-1}(U)$ which we will define as a new random variable, $X$.
+
+Our intent is to find that $CDF(X) = F$
+
+We define a CDF as the probability of obtaining a value of or less than that value. That is,
+
+$CDF(X) = Pr(X \le x)$
+
+or, using our definition of $X$ above,
+
+$Pr(X \le x) = Pr(F^{-1}(U) \le x)$
+
+We were told that $F$ was strictly increasing, and is therefore invertable. We take $F$ of both sides of the inequality to get
+
+$Pr(F^{-1}(U) \le x) = Pr(F(F^{-1}(U)\le F(x))$
+
+and use the knowledge that for invertable functions,
+
+$F(F^{-1}(Y)) = Y$
+
+so
+
+$Pr(F(F^{-1}(U)\le F(x))= Pr(U \le F(x))$
+
+The CDF can also be rewritten as
+
+$\int_{lower\space bound}^y pdf(Y)dy$
+
+Where $Y$ is a random variable. In this instance we know that the pdf of $U$ is a uniform distribution, which for $[0,1]$ is $1$. Additionally, in this instance our upper bound is $F(x)$, so
+
+$\int_0^{F(x)} 1dx = F(x)$
+```{marginfigure}
+$\blacksquare$
+```
+
+## b
+
+------------------------------------------------------------------
+
+Since we know that values of $F^{-1}(U)$ have a cdf equal to $F$, we can generate $n$ simulated points by doing
+
+```{r}
+set.seed(123)
+n <- 100
+points <- runif(100, min = 0, max = 1)
+```
+
+then we can feed the `points` argument into our function $F$ to get a set of 100 points with a cdf approximating $F$.
+
+## c
+
+------------------------------------------------------------------
+
+```{r}
+set.seed(123)
+n <- 100
+points <- runif(100, min = 0, max = 1)
+out <- dnorm(points, mean = .5, sd = 0.25)
+plot(points, out)
+```
 
