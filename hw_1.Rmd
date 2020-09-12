@@ -332,3 +332,13 @@ This was calculated above to be
 **Identical to problem c**
 
 # Problem 3
+
+A valid pmf follows two rules: $0 \ge p(h(x)) \ge 1$ for all values and $\Sigma_1^Ip(x) = 1$.
+
+To the first point, all input values are positive, so all probabilities are positive by this function.
+
+To the second point, 
+$\Sigma_1^Ip(x) = \Sigma_1^I(h(x)/ \Sigma_1^Ih(x)) = \Sigma_1^Ih(x)/ \Sigma_1^Ih(x) = 1$
+```{marginfigure}
+$\blacksquare$
+```
