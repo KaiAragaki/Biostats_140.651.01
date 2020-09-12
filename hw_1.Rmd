@@ -8,6 +8,7 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
 ```
 
 # Problem 1. Show the following
@@ -336,10 +337,13 @@ This was calculated above to be
 
 A valid pmf follows two rules: $0 \ge p(h(x)) \ge 1$ for all values and $\Sigma_1^Ip(x) = 1$.
 
-To the first point, all input values are positive, so all probabilities are positive by this function. Additionally, $h(x)\le\Sigma^I_{i = 1}h(i)$ since $\Sigma^I_{i = 1}h(i)$ is a sum of non-zero values (given) from $h(x)$, so $\Sigma^I_{i = 1}h(i) \ge h(x) \implies h(x)/\Sigma^I_{i = 1}h(i) \le 1 \implies p(x) \le 1$
+To the first point, all input values are positive, so all probabilities are positive by this function. Additionally, $h(x)\le\Sigma^I_{i = 1}h(i)$ since $\Sigma^I_{i = 1}h(i)$ is a sum of non-zero values (given) from $h(x)$, so 
+
+$\Sigma^I_{i = 1}h(i) \ge h(x) \implies h(x)/\Sigma^I_{i = 1}h(i) \le 1 \implies p(x) \le 1$
 
 
 To the second point, 
+
 $\Sigma_1^Ip(x) = \Sigma_1^I(h(x)/ \Sigma_1^Ih(x)) = \Sigma_1^Ih(x)/ \Sigma_1^Ih(x) = 1$
 ```{marginfigure}
 $\blacksquare$
@@ -356,11 +360,79 @@ Since we know that $h > 0$, all possible values of the function $f(x)$ can also 
 We can show by similar logic above (albeit on an infinitesimal level) that $h(x) \le c$ since $c$ is a sum of non-zero (given) values from $h(x)$. Therefore $h(x)/c \le 1$.
 
 To the second point, 
+
 $\int_{-\infty}^\infty f(x)dx = \int_{-\infty}^\infty h(x)dx/c$
+
 but we were told
+
 $c = \int_{-\infty}^\infty h(x)dx$
+
 so 
+
 $\int_{-\infty}^\infty f(x)dx = c/c = 1$
 ```{marginfigure}
 $\blacksquare$
 ```
+
+# Problem 5
+
+------------------------------------------------------------------
+
+## a.
+
+------------------------------------------------------------------
+
+```{r}
+dat <- tibble(x = seq(-1, 2, by = 0.01),
+              y = dunif(x))
+ggplot(dat, aes(x = x, y = y)) + geom_line()
+```
+Since we know that the area under the curve of a PDF must be equal to 1, and the distribution goes from 0 to 1, k must equal 1.
+
+## b
+
+------------------------------------------------------------------
+
+Mathematically we can represent this as 
+
+$\int^.7_.1f(x) = .6$
+
+In the context of the problem, we can think about this as "what is the probability that there exists an individual within this population that has proportion of their skin covered in freckles somewhere between 0.1 and 0.7?
+
+## c
+
+------------------------------------------------------------------
+
+```{r}
+punif(0.7) - punif(0.1)
+```
+
+We can see that for this particular distribution, the probability that $a < X < b$ given $0<a<b<1$ is $b-a$
+
+## d
+
+------------------------------------------------------------------
+
+pdf
+
+## e 
+
+------------------------------------------------------------------
+
+The median (or 50%) is the probability (or probability density) at the point where half the values are greater than the given value, and half are lower. In the context of the uniform distribution, the median probability is 0.5. In the context of our problem, this states that half the people in the population have greater than half their skin covered in freckles, while the other half of the population have less than half their skin covered in freckles.
+
+
+## f 
+
+------------------------------------------------------------------
+
+Here the 95% is 0.95 (lower tail) - that is, in the context of this problem, 95% of the population will have a smaller proportion of their skin befreckled
+
+## g 
+
+------------------------------------------------------------------
+
+This seems unlikely to me. In the real world there are given subpopulations that tend to have similar amounts of clusters (tending more towards a collection of gaussians vs a completely smooth uniform distribution). Intuitively it also seems strange that one could have 0 freckles just as probably as one could have 1 freckle - it seems more likely that if one has one freckle, there are probably more.
+
+
+
