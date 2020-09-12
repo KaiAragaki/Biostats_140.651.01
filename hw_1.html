@@ -438,15 +438,23 @@ if (window.hljs) {
 </div>
 <div id="f.-whats-the-probability-that-the-mother-has-contracted-cryptosporidiosis-but-the-father-has-not" class="section level2">
 <h2>f. What’s the probability that the mother has contracted cryptosporidiosis but the father has not?</h2>
-<hr />
 <p><strong>Identical to problem c</strong></p>
 </div>
 </div>
 <div id="problem-3" class="section level1">
 <h1>Problem 3</h1>
+<hr />
 <p>A valid pmf follows two rules: <span class="math inline">\(0 \ge p(h(x)) \ge 1\)</span> for all values and <span class="math inline">\(\Sigma_1^Ip(x) = 1\)</span>.</p>
-<p>To the first point, all input values are positive, so all probabilities are positive by this function.</p>
-<p>To the second point, <span class="math inline">\(\Sigma_1^Ip(x) = \Sigma_1^I(h(x)/ \Sigma_1^Ih(x)) = \Sigma_1^Ih(x)/ \Sigma_1^Ih(x) = 1\)</span> <label for="tufte-mn-15" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-15" class="margin-toggle"><span class="marginnote"></span></p>
+<p>To the first point, all input values are positive, so all probabilities are positive by this function. Additionally, <span class="math inline">\(h(x)\le\Sigma^I_{i = 1}h(i)\)</span> since <span class="math inline">\(\Sigma^I_{i = 1}h(i)\)</span> is a sum of non-zero values (given) from <span class="math inline">\(h(x)\)</span>, so <span class="math inline">\(\Sigma^I_{i = 1}h(i) \ge h(x) \implies h(x)/\Sigma^I_{i = 1}h(i) \le 1 \implies p(x) \le 1\)</span></p>
+<p>To the second point, <span class="math inline">\(\Sigma_1^Ip(x) = \Sigma_1^I(h(x)/ \Sigma_1^Ih(x)) = \Sigma_1^Ih(x)/ \Sigma_1^Ih(x) = 1\)</span> <label for="tufte-mn-15" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-15" class="margin-toggle"><span class="marginnote"><span style="display: block;"><span class="math inline"><span class="math inline">\(\blacksquare\)</span></span></span></span></p>
+</div>
+<div id="problem-4" class="section level1">
+<h1>Problem 4</h1>
+<hr />
+<p>A valid pdf follows two rules: <span class="math inline">\(0 \ge f(h(x)) \ge 1\)</span> across the function, and <span class="math inline">\(\int f(x)dx = 1\)</span> for all values.</p>
+<p>Since we know that $h &gt; 0 $, all possible values of the function <span class="math inline">\(f(x)\)</span> can also only be positive.</p>
+<p>We can show by similar logic above (albeit on an infinitesimal level) that <span class="math inline">\(h(x) \le c\)</span> since <span class="math inline">\(c\)</span> is a sum of non-zero (given) values from <span class="math inline">\(h(x)\)</span>. Therefore <span class="math inline">\(h(x)/c \le 1\)</span>.</p>
+<p>To the second point, <span class="math inline">\(\int_{-\infty}^\infty f(x)dx = \int_{-\infty}^\infty h(x)dx/c\)</span> but we were told <span class="math inline">\(c = \int_{-\infty}^\infty h(x)dx\)</span> so <span class="math inline">\(\int_{-\infty}^\infty f(x)dx = c/c = 1\)</span> <label for="tufte-mn-16" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-16" class="margin-toggle"><span class="marginnote"><span style="display: block;"><span class="math inline"><span class="math inline">\(\blacksquare\)</span></span></span></span></p>
 </div>
 
 

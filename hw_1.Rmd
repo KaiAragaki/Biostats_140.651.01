@@ -327,18 +327,40 @@ This was calculated above to be
 
 ## f. What’s the probability that the mother has contracted cryptosporidiosis but the father has not?
 
-------------------------------------------------------------------
-
 **Identical to problem c**
+
 
 # Problem 3
 
+------------------------------------------------------------------
+
 A valid pmf follows two rules: $0 \ge p(h(x)) \ge 1$ for all values and $\Sigma_1^Ip(x) = 1$.
 
-To the first point, all input values are positive, so all probabilities are positive by this function.
+To the first point, all input values are positive, so all probabilities are positive by this function. Additionally, $h(x)\le\Sigma^I_{i = 1}h(i)$ since $\Sigma^I_{i = 1}h(i)$ is a sum of non-zero values (given) from $h(x)$, so $\Sigma^I_{i = 1}h(i) \ge h(x) \implies h(x)/\Sigma^I_{i = 1}h(i) \le 1 \implies p(x) \le 1$
+
 
 To the second point, 
 $\Sigma_1^Ip(x) = \Sigma_1^I(h(x)/ \Sigma_1^Ih(x)) = \Sigma_1^Ih(x)/ \Sigma_1^Ih(x) = 1$
+```{marginfigure}
+$\blacksquare$
+```
+
+# Problem 4
+
+------------------------------------------------------------------
+
+A valid pdf follows two rules: $0 \ge f(h(x)) \ge 1$ across the function, and $\int f(x)dx = 1$ for all values.
+
+Since we know that $h > 0$, all possible values of the function $f(x)$ can also only be positive. 
+
+We can show by similar logic above (albeit on an infinitesimal level) that $h(x) \le c$ since $c$ is a sum of non-zero (given) values from $h(x)$. Therefore $h(x)/c \le 1$.
+
+To the second point, 
+$\int_{-\infty}^\infty f(x)dx = \int_{-\infty}^\infty h(x)dx/c$
+but we were told
+$c = \int_{-\infty}^\infty h(x)dx$
+so 
+$\int_{-\infty}^\infty f(x)dx = c/c = 1$
 ```{marginfigure}
 $\blacksquare$
 ```
