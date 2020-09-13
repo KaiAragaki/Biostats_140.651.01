@@ -534,3 +534,119 @@ plot(points, out)
 
 ------------------------------------------------------------------
 
+A valid pdf has an integral equal to 1 and for for each value of x, $0 \le g(x) \le 1$.
+
+Since we know that $0 \le \pi \le1$ and that $f_1(x)$ and $f_2(x)$ are continuous densities, we can discern that $g(x) \ge 0$ for all values of x. Additionally we can show that $g(x) \le 1$ if we look at the maximum values possible for $g(x)$, namely if both $f_1$ and $f_2$ are 1, whice evaluates to:
+$g(x)$ can be expanded to
+
+$g(x) = \pi + 1-\pi = 1$
+
+The integral of a valid continous density is equal to 1, so
+
+$\int g(x) = \pi\int f_1(x) + (1-\pi)\int f_2(x) = \pi+1-\pi=1$
+```{marginfigure}
+$\blacksquare$
+```
+
+## b
+
+------------------------------------------------------------------
+
+The distribution function is just the integral of the density. Therefore
+
+$G(x) = \pi F_1(x) + (1-\pi)F_2(x)$
+
+Where $G(x)$ is thee distribution function associated with $g$
+
+
+## c
+
+------------------------------------------------------------------
+
+The survival function is simply 1-cdf, so
+
+$1 - G(x) =1 - (\pi F_1(x) + (1-\pi)F_2(x))$
+
+Which can be simplified to 
+
+$1 - G(x) =1 - \pi F_1(x) - F_2(x) + \pi F_2(x)$
+
+And by substituting $1-F$ for $S$,
+
+$S_g(x) =(1+\pi)S_2(x) + (2-\pi)S_1(x)$
+
+
+# Problem 8
+
+------------------------------------------------------------------
+
+## a
+
+------------------------------------------------------------------
+
+$e^{-x}$ is always positive, so for any given value this function is > 0. 
+
+To find if this function is < 1 at its maximum, one way to go about doing this is taking the derivative and finding local maxima. 
+
+$(1+e^{-x})^2(-e^-x)-e^{-x}(2(1+e^{-x})(-e^{-x}))/(1+e^{-x})^4 = 0$
+
+$(1+e^{-x})^2(-e^-x)= e^{-x}(2(1+e^{-x})(-e^{-x}))$
+
+$1+e^{-x}= 2e^{-x}$
+
+$1= e^{-x}$
+
+We see this is true at (and only at) $x=0$ 
+
+The value of the function at $x=0$ is
+
+$e^0/(1+e^0)^2= 1/(1+1)^2 = 0.25$
+
+We can verify this by plotting:
+
+
+```{r}
+x <- seq(-10, 10, by = 0.1)
+y <- function(x){
+  exp(-x)/((1+exp(-x))^2)
+}
+
+plot(x, y(x))
+```
+
+Finally we can integrate to ensure that the area under the curve = 1. By substitution where $a = 1 + e^{-x}$, we see that the integral evaluates to
+
+$(1+e^{-x})^{-1}|^\infty_{-\infty} = 1 - 0 = 1$
+```{marginfigure}
+$\blacksquare$
+```
+## b
+
+------------------------------------------------------------------
+
+The cdf is simply the integral of the density, which we have shown previously:
+
+$(1+e^{-x})^{-1}$
+
+## c
+
+------------------------------------------------------------------
+
+Plugging in 0 into the distribution equation yields 1, which in the context of this problem may mean 'having a score of 0 of this particular risk factor or this diagnostic readout leads to a completely certain chance of cancer'.
+
+## d
+
+------------------------------------------------------------------
+
+The $p^th$ quantile is defined as the point on the cdf where $F(x) = p$. We also know that the cdf is $(1+e^{-x})^{-1}$. 
+
+So, solving for x:
+
+$(1+e^{-x})^{-1} = p$
+$1+e^{-x} = 1/p$
+$e^{-x} = $
+$-x = log((1-p)/p)$
+$x = log(((1-p)/p)^{-1}) = log(p/(1-p))$
+```{marginfigure}
+$\blacksquare$
+```
