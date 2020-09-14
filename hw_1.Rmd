@@ -650,3 +650,104 @@ $x = log(((1-p)/p)^{-1}) = log(p/(1-p))$
 ```{marginfigure}
 $\blacksquare$
 ```
+
+
+# Problem 9
+
+------------------------------------------------------------------
+
+## a
+
+------------------------------------------------------------------
+
+The probability density is just the derivative. Given $x_0$ and $\alpha$ are constant, the pdf is
+
+$\alpha(x_0/x)^{a-1}(x^{-2})$
+
+or more simply
+
+$\alpha x_0^\alpha/x^{\alpha+1}$
+
+## b
+
+------------------------------------------------------------------
+
+```{r}
+
+make_pareto_cdf <- function(x, x0, a) {
+  if (x < x0) {
+    0
+  }
+  else {
+    1 - (x0/x)^a
+  }
+}
+
+make_pareto_pdf <- function(x, x0, a) {
+  if (x < x0) {
+    0
+  }
+  else {
+    a*x0^a/x^(a+1)
+  }
+}
+
+pareto <- expand_grid(x = seq(0,110, 0.1), x0 = c(1, 2, 5), a = c(0.1, 1, 10)) %>% 
+  mutate(y_cdf = unlist(pmap(list(x, x0, a), make_pareto_cdf)),
+         y_pdf = unlist(pmap(list(x, x0, a), make_pareto_pdf))) %>% 
+  pivot_longer(cols = c(y_cdf, y_pdf), names_to = "fun")
+
+ggplot(pareto, aes(x = x, y = value, color = fun)) + geom_line() + facet_grid(a~x0) + coord_cartesian(ylim = c(0, 1), xlim = c(0, 10))
+
+```
+The scale parameter seems to shift the beginning of the function (likely relating to the 'base' number of years a product is expected to last before failing) while the shape parameter seems inversely related to the sharpness of the pdf peak - likely relating to the onset of failure after the given 'due date'.
+
+## c
+
+------------------------------------------------------------------
+
+We know that by feeding samples from a uniform distribution into the inverse of the CDF for the Pareto distribution we can get numbers that are similarly distributed as to those sampled from a random variable with a distribution resembling the Pareto distribution.
+
+$x = 1-(x_0/F^{-1}(x))^\alpha$
+$(x_0/F^{-1}(x))^\alpha= 1-x$
+$log(x_0/F^{-1}(x))= log(1-x)/\alpha$
+$log(x_0) - log(F^{-1}(x))= log(1-x)/\alpha$
+$log(F^{-1}(x))= log(x_0) - log(1-x)^{1/\alpha}$
+$F^{-1}(x)= x_0/(1-x)^{1/\alpha}$
+
+```{r}
+x <- runif(10000)
+y <- function(x, x0, a){
+  (x0/(1-x))^(1/a)
+}
+
+pareto <- tibble(x, y = y(x, 1, 2))
+
+
+ggplot(pareto, aes(x = y)) + geom_histogram(binwidth = .1) + coord_cartesian(xlim = c(0, 10))
+
+```
+
+## d
+
+------------------------------------------------------------------
+
+Survival = 1-cdf
+
+$S(x) = \{^{(x_0/x)^\alpha}_{1}$
+
+For values $x = 10$ years, $\alpha = 1$, and $x_0 = 2$,
+
+$S(10) = (2/10)^1 = 1/5$
+
+This could be interpreted as the likelihood that a given part will still be functioning at 10 years given an expected lifespan of 2 years
+
+## e
+
+------------------------------------------------------------------
+
+We previously found the inverse of the cdf, which is the quantile function:
+
+$F^{-1}(x)= x_0/(1-x)^{1/\alpha}$ 
+
+With an input of $p = .8$, this function would return the number of years that it would be expected that 80% of units have failed.
