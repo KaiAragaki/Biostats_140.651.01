@@ -751,3 +751,73 @@ We previously found the inverse of the cdf, which is the quantile function:
 $F^{-1}(x)= x_0/(1-x)^{1/\alpha}$ 
 
 With an input of $p = .8$, this function would return the number of years that it would be expected that 80% of units have failed.
+
+
+# Problem 10
+
+------------------------------------------------------------------
+
+## a
+
+------------------------------------------------------------------
+
+If this is to be a valid density, the integral from 0 to 1 should be 1. That is,
+
+$\int^1_0cx^k=1$
+$c(x^{k+1}/(k+1)|^1_0)=1$
+$c/(k+1)=1$
+$c=k+1$
+
+## b
+
+------------------------------------------------------------------
+
+The cdf is just the integral from the lower bound to x, so 
+
+$F(x) = \int^x_0cx^k$
+$F(x) = c(x^{k+1}/(k+1)|^x_0)$
+$F(x) = cx^{k+1}/(k+1)$
+
+and since we know $c=k+1$, 
+
+$F(x) = x^{k+1}$
+
+
+## c
+
+------------------------------------------------------------------
+
+The quantile formula is the inverse cdf, so
+
+$x= F^{-1}(x)^{k+1}$
+
+$log(x)= (k+1)log(F^{-1}(x))$
+
+$log(F^{-1}(x)) = log(x)/(k+1)$
+
+$log(F^{-1}(x)) = log(x^{1/(k+1)})$
+
+$F^{-1}(x) = x^{1/(k+1)}$
+
+
+## d
+
+------------------------------------------------------------------
+
+This is simply the cdf where the lower bound is $a$ and the upper bound is $b$, so
+
+$F(x) = c(x^{k+1}/(k+1)|^b_a)$
+
+$F(x) = (x^{k+1}|^b_a)$
+
+$F(x) = b^{k+1}-a^{k+1}$
+
+
+# Problem 11
+
+------------------------------------------------------------------
+
+## a
+
+------------------------------------------------------------------
+
