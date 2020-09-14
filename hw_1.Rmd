@@ -948,3 +948,82 @@ tib <- expand_grid(a = c(1:5), b = c(1:5), x = 0:100) %>%
 ggplot(tib, aes(x = x, y = y)) + geom_line() + facet_grid(a~b)
 ```
 
+# Problem 13
+
+------------------------------------------------------------------
+
+## a
+
+------------------------------------------------------------------
+
+We take the integral from lower to upper bound and see if:
+
+$\int^\infty_0\gamma x^{\gamma-1}e^{-x^\gamma/\beta}/\beta = 1$
+
+By substitution, if
+
+$u = x^\gamma/\beta$
+
+and
+
+$du = \gamma x^{\gamma - 1}/\beta dx$
+
+and we notice that
+
+$du\beta/\gamma = x^{\gamma-1}dx$
+
+we can write the original equation as
+
+$\int^\infty_0 e^{-u}du = -e^{-u}|^\infty_0 = 0--1 = 1$
+
+additionally we note that neither $x^c$ nor $e^-x$ can become negative with values of $x > 0$.
+
+## b
+
+------------------------------------------------------------------
+
+We found the integral of the pdf to be  
+
+$-e^{-u} = -e^{-x^\gamma/\beta}$
+
+And the cdf is defined by the integral from the lower bound to some value $x$, so
+
+$F(x) = -e^{-x^\gamma/\beta} + 1$
+
+where $F(x)$ is the cdf.
+
+We also know the surival function to be $1 - F(x)$, so 
+
+$S(x) = e^{-x^\gamma/\beta}$
+
+## c
+
+------------------------------------------------------------------
+
+We first must find the quantile function, which is the inverse cumulative distribution function:
+
+$x = -e^{-F^{-1}(x)^\gamma/\beta} + 1$
+
+$1-x = e^-F^{-1}(x)^\gamma/\beta$
+
+$-log(1-x) = F^{-1}(x)^\gamma/\beta$
+
+$-\beta log(1-x)=F^{-1}(x)^\gamma$
+
+$F^{-1}(x) = log(-\beta log(1-x))/\gamma $
+
+The median is such that
+
+$F^{-1}(0.5) = log(-\beta log(1-0.5))/\gamma = log(-\beta log(.5))/\gamma$
+
+## d
+
+------------------------------------------------------------------
+
+```{r}
+tib <- expand_grid(x = seq(1, 10, by = 0.1), g = c(0.5, 1, 2), b = c(0.5, 1, 2)) %>% 
+  mutate(y = (g/b)*x^(g-1)*exp((-x^g)/b))
+
+ggplot(tib, aes(x = x, y = y)) + geom_line() + facet_grid(g~b)
+```
+
