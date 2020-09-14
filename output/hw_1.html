@@ -628,7 +628,8 @@ plot(x, y(x))</code></pre>
 <p>Finally we can integrate to ensure that the area under the curve = 1. By substitution where <span class="math inline">\(a = 1 + e^{-x}\)</span>, we see that the integral evaluates to</p>
 <p><span class="math inline">\((1+e^{-x})^{-1}|^\infty_{-\infty} = 1 - 0 = 1\)</span> <label for="tufte-mn-19" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-19" class="margin-toggle"><span class="marginnote"><span style="display: block;"><span class="math inline"><span class="math inline">\(\blacksquare\)</span></span></span></span> ## b</p>
 <hr />
-<p>The cdf is simply the integral of the density, which we have shown previously:</p>
+<p>The cdf is simply the integral of the density from its lower bound to some value x:</p>
+<p><span class="math inline">\((1+e^{-x})^{-1}|^x{-\infty}\)</span></p>
 <p><span class="math inline">\((1+e^{-x})^{-1}\)</span></p>
 </div>
 <div id="c-3" class="section level2">
@@ -715,6 +716,88 @@ ggplot(pareto, aes(x = y)) + geom_histogram(binwidth = .1) + coord_cartesian(xli
 <p>We previously found the inverse of the cdf, which is the quantile function:</p>
 <p><span class="math inline">\(F^{-1}(x)= x_0/(1-x)^{1/\alpha}\)</span></p>
 <p>With an input of <span class="math inline">\(p = .8\)</span>, this function would return the number of years that it would be expected that 80% of units have failed.</p>
+</div>
+</div>
+<div id="problem-10" class="section level1">
+<h1>Problem 10</h1>
+<hr />
+<div id="a-4" class="section level2">
+<h2>a</h2>
+<hr />
+<p>If this is to be a valid density, the integral from 0 to 1 should be 1. That is,</p>
+<p><span class="math inline">\(\int^1_0cx^k=1\)</span> <span class="math inline">\(c(x^{k+1}/(k+1)|^1_0)=1\)</span> <span class="math inline">\(c/(k+1)=1\)</span> <span class="math inline">\(c=k+1\)</span></p>
+</div>
+<div id="b-4" class="section level2">
+<h2>b</h2>
+<hr />
+<p>The cdf is just the integral from the lower bound to x, so</p>
+<p><span class="math inline">\(F(x) = \int^x_0cx^k\)</span> <span class="math inline">\(F(x) = c(x^{k+1}/(k+1)|^x_0)\)</span> <span class="math inline">\(F(x) = cx^{k+1}/(k+1)\)</span></p>
+<p>and since we know <span class="math inline">\(c=k+1\)</span>,</p>
+<p><span class="math inline">\(F(x) = x^{k+1}\)</span></p>
+</div>
+<div id="c-5" class="section level2">
+<h2>c</h2>
+<hr />
+<p>The quantile formula is the inverse cdf, so</p>
+<p><span class="math inline">\(x= F^{-1}(x)^{k+1}\)</span></p>
+<p><span class="math inline">\(log(x)= (k+1)log(F^{-1}(x))\)</span></p>
+<p><span class="math inline">\(log(F^{-1}(x)) = log(x)/(k+1)\)</span></p>
+<p><span class="math inline">\(log(F^{-1}(x)) = log(x^{1/(k+1)})\)</span></p>
+<p><span class="math inline">\(F^{-1}(x) = x^{1/(k+1)}\)</span></p>
+</div>
+<div id="d-3" class="section level2">
+<h2>d</h2>
+<hr />
+<p>This is simply the cdf where the lower bound is <span class="math inline">\(a\)</span> and the upper bound is <span class="math inline">\(b\)</span>, so</p>
+<p><span class="math inline">\(F(x) = c(x^{k+1}/(k+1)|^b_a)\)</span></p>
+<p><span class="math inline">\(F(x) = (x^{k+1}|^b_a)\)</span></p>
+<p><span class="math inline">\(F(x) = b^{k+1}-a^{k+1}\)</span></p>
+</div>
+</div>
+<div id="problem-11" class="section level1">
+<h1>Problem 11</h1>
+<hr />
+<div id="a-5" class="section level2">
+<h2>a</h2>
+<hr />
+<p>To make this a valid density, the following must be true:</p>
+<p><span class="math inline">\(\int_0^\infty f(x) = 1\)</span></p>
+<p><span class="math inline">\(\int_0^\infty ce^{-x/2.5} = 1\)</span></p>
+<p><span class="math inline">\(-2.5c(e^{-x/2.5}|^\infty_0)=1\)</span></p>
+<p><span class="math inline">\(-2.5c(0-1)=1\)</span></p>
+<p><span class="math inline">\(c = 1/2.5\)</span></p>
+</div>
+<div id="b-5" class="section level2">
+<h2>b</h2>
+<hr />
+<p>This is the integral of the pdf from the lower bound (0) to x:</p>
+<p><span class="math inline">\(\int_0^x f(x)\)</span></p>
+<p><span class="math inline">\(\int_0^x e^{-x/2.5}/2.5\)</span></p>
+<p><span class="math inline">\(-(e^{-x/2.5}-1)\)</span></p>
+<p><span class="math inline">\(F(x) = 1-e^{-x/2.5}\)</span></p>
+</div>
+<div id="c-6" class="section level2">
+<h2>c</h2>
+<hr />
+<p>The survival function is 1-cdf or</p>
+<p><span class="math inline">\(S(x) = 1-(1-e^{-x/2.5})\)</span></p>
+<p><span class="math inline">\(S(x) = e^{-x/2.5}\)</span></p>
+</div>
+<div id="d-4" class="section level2">
+<h2>d</h2>
+<hr />
+<p><span class="math inline">\(S(11) = e^{-11/2.5} \approx 0.012\)</span></p>
+</div>
+<div id="e-2" class="section level2">
+<h2>e</h2>
+<hr />
+<p>This involves finding the quantile function, which is the inverse of the cdf:</p>
+<p><span class="math inline">\(x = 1-e^{-F^{-1}(x)/2.5}\)</span></p>
+<p><span class="math inline">\(1-x = e^{-F^{-1}(x)/2.5}\)</span></p>
+<p><span class="math inline">\(log(1-x) = -F^{-1}(x)/2.5\)</span></p>
+<p><span class="math inline">\(F^{-1}(x) = -2.5log(1-x)\)</span></p>
+<p>And then find the value where <span class="math inline">\(x = 0.5\)</span></p>
+<p><span class="math inline">\(F^{-1}(0.5) = -2.5log(.5) \approx 1.73\)</span></p>
 </div>
 </div>
 

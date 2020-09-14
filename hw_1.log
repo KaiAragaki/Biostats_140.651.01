@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.9.12)  13 SEP 2020 23:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.9.12)  14 SEP 2020 11:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -828,7 +828,7 @@ File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/cmtt/m/n' tried instead on input line 577.
 <C:/Users/adama/Documents/Biostats_140.651.01/output/hw_1_files/figure-latex/un
-named-chunk-17-1.pdf, id=112, 289.08pt x 180.675pt>
+named-chunk-17-1.pdf, id=120, 289.08pt x 180.675pt>
 File: C:/Users/adama/Documents/Biostats_140.651.01/output/hw_1_files/figure-lat
 ex/unnamed-chunk-17-1.pdf Graphic file (type pdf)
 <use C:/Users/adama/Documents/Biostats_140.651.01/output/hw_1_files/figure-late
@@ -861,7 +861,7 @@ This message occurred on input line 732.
 
 [8]
 <C:/Users/adama/Documents/Biostats_140.651.01/output/hw_1_files/figure-latex/un
-named-chunk-21-1.pdf, id=154, 289.08pt x 180.675pt>
+named-chunk-21-1.pdf, id=162, 289.08pt x 180.675pt>
 File: C:/Users/adama/Documents/Biostats_140.651.01/output/hw_1_files/figure-lat
 ex/unnamed-chunk-21-1.pdf Graphic file (type pdf)
 <use C:/Users/adama/Documents/Biostats_140.651.01/output/hw_1_files/figure-late
@@ -882,7 +882,7 @@ This message occurred on input line 781.
 [9 <c:/Users/adama/Documents/Biostats_140.651.01/output/hw_1_files/figure-latex
 /unnamed-chunk-21-1.pdf>]
 <C:/Users/adama/Documents/Biostats_140.651.01/output/hw_1_files/figure-latex/un
-named-chunk-23-1.pdf, id=170, 289.08pt x 180.675pt>
+named-chunk-23-1.pdf, id=178, 289.08pt x 180.675pt>
 File: C:/Users/adama/Documents/Biostats_140.651.01/output/hw_1_files/figure-lat
 ex/unnamed-chunk-23-1.pdf Graphic file (type pdf)
 <use C:/Users/adama/Documents/Biostats_140.651.01/output/hw_1_files/figure-late
@@ -904,78 +904,90 @@ This message occurred on input line 848.
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 898.
+This message occurred on input line 900.
 
 [11 <c:/Users/adama/Documents/Biostats_140.651.01/output/hw_1_files/figure-late
 x/unnamed-chunk-23-1.pdf>]
 <C:/Users/adama/Documents/Biostats_140.651.01/output/hw_1_files/figure-latex/un
-named-chunk-26-1.pdf, id=196, 289.08pt x 180.675pt>
+named-chunk-26-1.pdf, id=204, 289.08pt x 180.675pt>
 File: C:/Users/adama/Documents/Biostats_140.651.01/output/hw_1_files/figure-lat
 ex/unnamed-chunk-26-1.pdf Graphic file (type pdf)
 <use C:/Users/adama/Documents/Biostats_140.651.01/output/hw_1_files/figure-late
 x/unnamed-chunk-26-1.pdf>
 Package pdftex.def Info: C:/Users/adama/Documents/Biostats_140.651.01/output/hw
-_1_files/figure-latex/unnamed-chunk-26-1.pdf  used on input line 946.
+_1_files/figure-latex/unnamed-chunk-26-1.pdf  used on input line 948.
 (pdftex.def)             Requested size: 312.01648pt x 195.01028pt.
 
-Overfull \hbox (12.01648pt too wide) in paragraph at lines 946--952
+Overfull \hbox (12.01648pt too wide) in paragraph at lines 948--954
 [][] 
  []
 
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 952.
+This message occurred on input line 954.
 
 [12]
 <C:/Users/adama/Documents/Biostats_140.651.01/output/hw_1_files/figure-latex/un
-named-chunk-27-1.pdf, id=205, 289.08pt x 180.675pt>
+named-chunk-27-1.pdf, id=213, 289.08pt x 180.675pt>
 File: C:/Users/adama/Documents/Biostats_140.651.01/output/hw_1_files/figure-lat
 ex/unnamed-chunk-27-1.pdf Graphic file (type pdf)
 <use C:/Users/adama/Documents/Biostats_140.651.01/output/hw_1_files/figure-late
 x/unnamed-chunk-27-1.pdf>
 Package pdftex.def Info: C:/Users/adama/Documents/Biostats_140.651.01/output/hw
-_1_files/figure-latex/unnamed-chunk-27-1.pdf  used on input line 984.
+_1_files/figure-latex/unnamed-chunk-27-1.pdf  used on input line 986.
 (pdftex.def)             Requested size: 312.01648pt x 195.01028pt.
 
-Overfull \hbox (12.01648pt too wide) in paragraph at lines 984--985
+Overfull \hbox (12.01648pt too wide) in paragraph at lines 986--987
 [][]  
  []
 
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 987.
+This message occurred on input line 989.
 
 [13 <c:/Users/adama/Documents/Biostats_140.651.01/output/hw_1_files/figure-late
 x/unnamed-chunk-26-1.pdf>]
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 1035.
+
+[14 <c:/Users/adama/Documents/Biostats_140.651.01/output/hw_1_files/figure-late
+x/unnamed-chunk-27-1.pdf>]
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 1108.
+
+[15]
 
 Package bibentry Warning: You have used \nobibliography* 
 (bibentry)                without a following \bibliography.
 (bibentry)                You may not be able to run BibTeX.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1017.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1154.
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 1017.
+This message occurred on input line 1154.
 
-[14 <c:/Users/adama/Documents/Biostats_140.651.01/output/hw_1_files/figure-late
-x/unnamed-chunk-27-1.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1017.
+[16]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1154.
 (./hw_1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1017.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1017.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1154.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1154.
 
 Package rerunfilecheck Info: File `hw_1.out' has not changed.
-(rerunfilecheck)             Checksum: 0F5E36298924B45DB7AE71D707DFF709;945.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1017.
+(rerunfilecheck)             Checksum: 1221512871061406A3A927A9D830A65E;1143.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1154.
  ) 
 Here is how much of TeX's memory you used:
- 13390 strings out of 482824
- 198176 string characters out of 5954529
- 474404 words of memory out of 5000000
- 28379 multiletter control sequences out of 15000+600000
+ 13427 strings out of 482824
+ 198480 string characters out of 5954529
+ 474737 words of memory out of 5000000
+ 28392 multiletter control sequences out of 15000+600000
  549204 words of font info for 67 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  55i,12n,51p,576b,382s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1002,13 +1014,15 @@ adama/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pf
 b><c:/Users/adama/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmr8.pfb><c:/Users/adama/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/pu
 blic/amsfonts/cm/cmsy10.pfb><c:/Users/adama/AppData/Roaming/TinyTeX/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/Users/adama/AppData/Roaming/TinyTe
-X/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/Users/adama/AppData/R
-oaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on hw_1.pdf (14 pages, 291632 bytes).
+fonts/type1/public/amsfonts/cm/cmsy5.pfb><c:/Users/adama/AppData/Roaming/TinyTe
+X/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/Users/adama/AppData/R
+oaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/Users/ad
+ama/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msam
+10.pfb>
+Output written on hw_1.pdf (16 pages, 304396 bytes).
 PDF statistics:
- 578 PDF objects out of 1000 (max. 8388607)
- 284 compressed objects within 3 object streams
- 105 named destinations out of 1000 (max. 500000)
- 98 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 624 PDF objects out of 1000 (max. 8388607)
+ 326 compressed objects within 4 object streams
+ 129 named destinations out of 1000 (max. 500000)
+ 114 words of extra memory for PDF output out of 10000 (max. 10000000)
 

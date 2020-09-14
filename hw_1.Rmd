@@ -624,7 +624,9 @@ $\blacksquare$
 
 ------------------------------------------------------------------
 
-The cdf is simply the integral of the density, which we have shown previously:
+The cdf is simply the integral of the density from its lower bound to some value x:
+
+$(1+e^{-x})^{-1}|^x{-\infty}$
 
 $(1+e^{-x})^{-1}$
 
@@ -820,4 +822,67 @@ $F(x) = b^{k+1}-a^{k+1}$
 ## a
 
 ------------------------------------------------------------------
+
+To make this a valid density, the following must be true:
+
+$\int_0^\infty f(x) = 1$
+
+$\int_0^\infty ce^{-x/2.5} = 1$
+
+$-2.5c(e^{-x/2.5}|^\infty_0)=1$
+
+$-2.5c(0-1)=1$
+
+$c = 1/2.5$
+
+
+## b
+
+------------------------------------------------------------------
+
+This is the integral of the pdf from the lower bound (0) to x:
+
+$\int_0^x f(x)$
+
+$\int_0^x e^{-x/2.5}/2.5$
+
+$-(e^{-x/2.5}-1)$
+
+$F(x) = 1-e^{-x/2.5}$
+
+## c
+
+------------------------------------------------------------------
+
+The survival function is  1-cdf or
+
+$S(x) = 1-(1-e^{-x/2.5})$
+
+$S(x) = e^{-x/2.5}$
+
+
+## d
+
+------------------------------------------------------------------
+
+$S(11) = e^{-11/2.5} \approx 0.012$
+
+
+## e
+
+------------------------------------------------------------------
+
+This involves finding the quantile function, which is the inverse of the cdf:
+
+$x = 1-e^{-F^{-1}(x)/2.5}$
+
+$1-x = e^{-F^{-1}(x)/2.5}$
+
+$log(1-x) = -F^{-1}(x)/2.5$
+
+$F^{-1}(x) = -2.5log(1-x)$
+
+And then find the value where $x = 0.5$
+
+$F^{-1}(0.5) = -2.5log(.5) \approx 1.73$
 
