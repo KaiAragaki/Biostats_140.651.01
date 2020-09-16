@@ -1,0 +1,48 @@
+---
+title: "BST 140.651 Problem Set 1"
+author: "Kai Aragaki"
+date: "9/10/2020"
+output: 
+        tufte::tufte_html: default
+        tufte::tufte_handout: default
+header-includes:
+   - \setlength\parindent{0pt}
+knit: (function(inputFile, encoding) {
+  rmarkdown::render(inputFile, encoding = encoding,
+  output_dir = "output", output_format = "all") })
+
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+# Problem 1
+
+-----------------------------------
+
+$Var(X) = E[X^2]-E[X]^2$
+
+Where $Var(X) = E[(X-\mu)^2]$, so
+
+$E[(X-\mu)^2] = E[X^2]-E[X]^2$
+
+$E[X^2-2X\mu + \mu^2] = E[X^2]-E[X]^2$
+
+$E[X^2] + E[-2X\mu] + E[\mu^2] = E[X^2]-E[X]^2$
+
+Since $\mu$ is a constant, and constants can be pulled out of the expected value function,
+
+$E[X^2] -2\mu E[X] + \mu^2 E[1] = E[X^2] -E[X]^2$
+
+Simplifying, and with the knowledge that $E[X] = \mu$:
+
+$-2\mu^2 + \mu^2 = -\mu^2$
+
+From which we find
+
+$-2\mu^2 = -2\mu^2$
+
+Which we know to be true.
+
