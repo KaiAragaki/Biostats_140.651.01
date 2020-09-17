@@ -1,12 +1,10 @@
 ---
-title: "BST 140.651 Problem Set 1"
+title: "BST 140.651 Problem Set 2"
 author: "Kai Aragaki"
-date: "9/10/2020"
+date: "9/15/2020"
 output: 
         tufte::tufte_html: default
         tufte::tufte_handout: default
-header-includes:
-   - \setlength\parindent{0pt}
 knit: (function(inputFile, encoding) {
   rmarkdown::render(inputFile, encoding = encoding,
   output_dir = "output", output_format = "all") })
@@ -150,3 +148,50 @@ Combining this left hand term with the right hand term, we get
 
 $Var(x) = \pi_1(\mu^2_1 + \sigma^2_1) +\pi_2(\mu^2_2 + \sigma^2_2) +\pi_3(\mu^2_3 + \sigma^2_3) -(\pi_1\mu_1 + \pi_2\mu_2+\pi_3\mu_3)^2$
 
+
+# Problem 3
+
+-----------------------------------
+
+## a
+
+-----------------------------------
+
+The mean of a continuous distribution is 
+
+$\int\limits_{lower}^{upper}xf(x)$
+
+In this case the lower and upper bounds are given as 0 and 1 respectively.
+
+Therefore the mean is given by
+
+$\int\limits_{0}^{1}(k+1)x^{k+1}$
+
+$\int\limits_{0}^{1}kx^{k+1} + \int\limits_{0}^{1}x^{k+1}$
+
+$\frac{kx^{k+2}}{k+2}\Bigg|^1_0 + \frac{x^{k+2}}{k+2}\Bigg|^1_0$
+
+$\frac{k}{k+2} + \frac{1}{k+2}$
+
+$\frac{k+1}{k+2}$
+
+
+## b
+
+-----------------------------------
+
+The variance of this distribution is
+
+$Var(x) = E[X^2] - E[X]^2$
+
+We know $E[X]=\mu$, which is what we found in part $a$, so squaring it is trivial. Additionally,
+
+$E[X^2] = \int\limits_{0}^{1}x^2\big((k+1)x^k\big) = \int\limits_{0}^{1}(k+1)x^{k+2}$
+
+And by distributing, 
+
+$\int\limits_{0}^{1}kx^{k+2} + \int\limits_{0}^{1}x^{k+2}$
+
+We can see by analogy to the first problem that this will integrate and simplify to
+
+$\frac{k+1}{k+3}$
