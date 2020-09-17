@@ -5,8 +5,6 @@ date: "9/10/2020"
 output: 
         tufte::tufte_html: default
         tufte::tufte_handout: default
-header-includes:
-   - \setlength\parindent{0pt}
 knit: (function(inputFile, encoding) {
   rmarkdown::render(inputFile, encoding = encoding,
   output_dir = "output", output_format = "all") })
@@ -215,7 +213,7 @@ $P(A\cap (B^c\cup B))) = P(A \cap \Omega) = P(A)$
 $\blacksquare$
 ```
 
-## g. $P(\cup^n_{i=1}E_i)\le \Sigma^n_{i=1}P(E_i))$
+## g. $P(\bigcup\limits^n_{i=1}E_i)\le \sum\limits_{i=1}^nP(E_i)$
 
 ---------------------------------
 
@@ -228,32 +226,32 @@ $P(E_1\cup E_2) = P(E_1) + P(E_2) - P(E_1\cap E_2)$
 see proof d
 ```
 And since
-$P(E_1) + P(E_2) = \Sigma^2_{i=1}P(E_i)$
+$P(E_1) + P(E_2) = \sum\limits^2_{i=1}P(E_i)$
 
 by substitution we get
 
-$P(E_1\cup E_2) = \Sigma^2_{i=1}P(E_i) - P(E_1\cap E_2)$
+$P(E_1\cup E_2) = \sum\limits^2_{i=1}P(E_i) - P(E_1\cap E_2)$
 
-Since the probability of any even must be greater than or equal to zero, the right hand side of the equation (and by definition the left) *must* be less than or equal to $\Sigma^2_{i=1}P(E_i)$ itself! So,
+Since the probability of any even must be greater than or equal to zero, the right hand side of the equation (and by definition the left) *must* be less than or equal to $\sum\limits^2_{i=1}P(E_i)$ itself! So,
 
-$P(E_1\cup E_2) \le \Sigma^2_{i=1}P(E_i)$
+$P(E_1\cup E_2) \le \sum\limits^2_{i=1}P(E_i)$
 
 Since we have proven our statement for n = 2, let us assume it true for n-1:
 
-$P(\cup^{n-1}_{i=1}E_i) \le \Sigma^{n-1}_{i=1}P(E_i)$
+$P(\bigcup\limits^{n-1}_{i=1}E_i) \le \sum\limits^{n-1}_{i=1}P(E_i)$
 
 Then for n,
 
-$P(\cup^{n}_{i=1}E_i) = P(E_n)\cup P(\cup^{n-1}_{i=1}E_i)$
+$P(\bigcup\limits^{n}_{i=1}E_i) = P(E_n)\cup P(\bigcup\limits^{n-1}_{i=1}E_i)$
 
-We notice that this is structurally identical to that which we proved above, where $P(E_1) = P(E_n)$ and $P(E_2) = P(\cup^{n-1}_{i=1}E_i)$. Following the same proof we find
+We notice that this is structurally identical to that which we proved above, where $P(E_1) = P(E_n)$ and $P(E_2) = P(\bigcup\limits^{n-1}_{i=1}E_i)$. Following the same proof we find
 
-$P(\cup^n_{i=1}E_i)\le \Sigma^n_{i=1}P(E_i))$
+$P(\bigcup\limits^n_{i=1}E_i)\le \sum\limits^n_{i=1}P(E_i))$
 ```{marginfigure}
 $\blacksquare$
 ```
 
-## h. $P(\cup^n_{i=1}E_i)\ge max_i\space P(E_i)$
+## h. $P(\bigcup\limits^n_{i=1}E_i)\ge max_i\space P(E_i)$
 
 ---------------------------------
 
@@ -279,11 +277,11 @@ proof c
 
 We now consider the case for n-1 to be true:
 
-$P(\cup^{n-1}_{i=1}E_i) \ge max_i\space P(E_i)$
+$P(\bigcup\limits^{n-1}_{i=1}E_i) \ge max_i\space P(E_i)$
 
 and evaluate the truth of n:
 
-$P(E_n)\cup P(\cup^{n-1}_{i=1}E_i) \ge max_i\space P(E_i)$
+$P(E_n)\cup P(\bigcup\limits^{n-1}_{i=1}E_i) \ge max_i\space P(E_i)$
 
 Like proof g, we can state that
 
@@ -291,7 +289,7 @@ $P(E_n)$ is analogous to $P(E_1)$
 
 and
 
-$P(\cup^{n-1}_{i=1}E_i)$ is analgous to $P(E_2)$, 
+$P(\bigcup\limits^{n-1}_{i=1}E_i)$ is analgous to $P(E_2)$, 
 
 at which point this is a statement we have already proved
 ```{marginfigure}
@@ -356,16 +354,16 @@ This was calculated above to be
 
 ------------------------------------------------------------------
 
-A valid pmf follows two rules: $0 \ge p(h(x)) \ge 1$ for all values and $\Sigma_1^Ip(x) = 1$.
+A valid pmf follows two rules: $0 \ge p(h(x)) \ge 1$ for all values and $\sum\limits_1^Ip(x) = 1$.
 
-To the first point, all input values are positive, so all probabilities are positive by this function. Additionally, $h(x)\le\Sigma^I_{i = 1}h(i)$ since $\Sigma^I_{i = 1}h(i)$ is a sum of non-zero values (given) from $h(x)$, so 
+To the first point, all input values are positive, so all probabilities are positive by this function. Additionally, $h(x)\le\sum\limits^I_{i = 1}h(i)$ since $\sum\limits^I_{i = 1}h(i)$ is a sum of non-zero values (given) from $h(x)$, so 
 
-$\Sigma^I_{i = 1}h(i) \ge h(x) \implies h(x)/\Sigma^I_{i = 1}h(i) \le 1 \implies p(x) \le 1$
+$\sum\limits^I_{i = 1}h(i) \ge h(x) \implies \frac{h(x)}{\sum^I_{i = 1}h(i)} \le 1 \implies p(x) \le 1$
 
 
 To the second point, 
 
-$\Sigma_1^Ip(x) = \Sigma_1^I(h(x)/ \Sigma_1^Ih(x)) = \Sigma_1^Ih(x)/ \Sigma_1^Ih(x) = 1$
+$\sum\limits_1^Ip(x) = \frac{\sum_1^I(h(x)}{\sum_1^Ih(x))} = \frac{\sum_1^Ih(x)}{\sum_1^Ih(x)} = 1$
 ```{marginfigure}
 $\blacksquare$
 ```
@@ -382,15 +380,15 @@ We can show by similar logic above (albeit on an infinitesimal level) that $h(x)
 
 To the second point, 
 
-$\int_{-\infty}^\infty f(x)dx = \int_{-\infty}^\infty h(x)dx/c$
+$\int\limits_{-\infty}^\infty f(x)dx = \int\limits_{-\infty}^\infty h(x)dx/c$
 
 but we were told
 
-$c = \int_{-\infty}^\infty h(x)dx$
+$c = \int\limits_{-\infty}^\infty h(x)dx$
 
 so 
 
-$\int_{-\infty}^\infty f(x)dx = c/c = 1$
+$\int\limits_{-\infty}^\infty f(x)dx = \frac{c}{c} = 1$
 ```{marginfigure}
 $\blacksquare$
 ```
@@ -416,7 +414,7 @@ Since we know that the area under the curve of a PDF must be equal to 1, and the
 
 Mathematically we can represent this as 
 
-$\int^.7_.1f(x)dx = .6$
+$\int\limits^.7_.1f(x)dx = .6$
 
 In the context of the problem, we can think about this as "what is the probability that there exists an individual within this population that has proportion of their skin covered in freckles somewhere between 0.1 and 0.7?
 
@@ -491,11 +489,11 @@ $Pr(F(F^{-1}(U)\le F(x))= Pr(U \le F(x))$
 
 The CDF can also be rewritten as
 
-$\int_{lower\space bound}^y pdf(Y)dy$
+$\int\limits_{lower}^y pdf(Y)dy$
 
 Where $Y$ is a random variable. In this instance we know that the pdf of $U$ is a uniform distribution, which for $[0,1]$ is $1$. Additionally, in this instance our upper bound is $F(x)$, so
 
-$\int_0^{F(x)} 1dx = F(x)$
+$\int\limits_0^{F(x)} 1dx = F(x)$
 ```{marginfigure}
 $\blacksquare$
 ```
@@ -586,35 +584,7 @@ $S_g(x) =(1+\pi)S_2(x) + (2-\pi)S_1(x)$
 
 $e^{-x}$ is always positive, so for any given value this function is > 0. 
 
-To find if this function is < 1 at its maximum, one way to go about doing this is taking the derivative and finding local maxima. 
-
-$(1+e^{-x})^2(-e^-x)-e^{-x}(2(1+e^{-x})(-e^{-x}))/(1+e^{-x})^4 = 0$
-
-$(1+e^{-x})^2(-e^-x)= e^{-x}(2(1+e^{-x})(-e^{-x}))$
-
-$1+e^{-x}= 2e^{-x}$
-
-$1= e^{-x}$
-
-We see this is true at (and only at) $x=0$ 
-
-The value of the function at $x=0$ is
-
-$e^0/(1+e^0)^2= 1/(1+1)^2 = 0.25$
-
-We can verify this by plotting:
-
-
-```{r}
-x <- seq(-10, 10, by = 0.1)
-y <- function(x){
-  exp(-x)/((1+exp(-x))^2)
-}
-
-plot(x, y(x))
-```
-
-Finally we can integrate to ensure that the area under the curve = 1. By substitution where $a = 1 + e^{-x}$, we see that the integral evaluates to
+We can integrate to ensure that the area under the curve = 1. By substitution where $a = 1 + e^{-x}$, we see that the integral evaluates to
 
 $(1+e^{-x})^{-1}|^\infty_{-\infty} = 1 - 0 = 1$
 ```{marginfigure}
@@ -626,7 +596,7 @@ $\blacksquare$
 
 The cdf is simply the integral of the density from its lower bound to some value x:
 
-$(1+e^{-x})^{-1}|^x{-\infty}$
+$(1+e^{-x})^{-1}|^x_{-\infty}$
 
 $(1+e^{-x})^{-1}$
 
@@ -645,10 +615,10 @@ The $p^th$ quantile is defined as the point on the cdf where $F(x) = p$. We also
 So, solving for x:
 
 $(1+e^{-x})^{-1} = p$
-$1+e^{-x} = 1/p$
+$1+e^{-x} = \frac{1}{p}$
 $e^{-x} = $
-$-x = log((1-p)/p)$
-$x = log(((1-p)/p)^{-1}) = log(p/(1-p))$
+$-x = log(\frac{(1-p)}{p})$
+$x = log(\frac{(1-p)}{p}^{-1}) = log(\frac{p}{(1-p)})$
 ```{marginfigure}
 $\blacksquare$
 ```
@@ -664,11 +634,11 @@ $\blacksquare$
 
 The probability density is just the derivative. Given $x_0$ and $\alpha$ are constant, the pdf is
 
-$\alpha(x_0/x)^{a-1}(x^{-2})$
+$\alpha(\frac{x_0}{x})^{a-1}(x^{-2})$
 
 or more simply
 
-$\alpha x_0^\alpha/x^{\alpha+1}$
+$\frac{\alpha x_0^\alpha}{x^{\alpha+1}}$
 
 ## b
 
@@ -710,12 +680,12 @@ The scale parameter seems to shift the beginning of the function (likely relatin
 
 We know that by feeding samples from a uniform distribution into the inverse of the CDF for the Pareto distribution we can get numbers that are similarly distributed as to those sampled from a random variable with a distribution resembling the Pareto distribution.
 
-$x = 1-(x_0/F^{-1}(x))^\alpha$
-$(x_0/F^{-1}(x))^\alpha= 1-x$
-$log(x_0/F^{-1}(x))= log(1-x)/\alpha$
-$log(x_0) - log(F^{-1}(x))= log(1-x)/\alpha$
+$x = 1-(\frac{x_0}{F^{-1}(x)})^\alpha$
+$(\frac{x_0}{F^{-1}(x)})^\alpha= 1-x$
+$log(\frac{x_0}{F^{-1}(x)})= \frac{log(1-x)}\alpha$
+$log(x_0) - log(F^{-1}(x))= \frac{log(1-x)}{\alpha}$
 $log(F^{-1}(x))= log(x_0) - log(1-x)^{1/\alpha}$
-$F^{-1}(x)= x_0/(1-x)^{1/\alpha}$
+$F^{-1}(x)= \frac{x_0}{(1-x)}^{1/\alpha}$
 
 ```{r}
 x <- runif(10000)
@@ -736,11 +706,11 @@ ggplot(pareto, aes(x = y)) + geom_histogram(binwidth = .1) + coord_cartesian(xli
 
 Survival = 1-cdf
 
-$S(x) = \{^{(x_0/x)^\alpha}_{1}$
+$S(x) = \Big\{^{(x_0/x)^\alpha}_{1}$
 
 For values $x = 10$ years, $\alpha = 1$, and $x_0 = 2$,
 
-$S(10) = (2/10)^1 = 1/5$
+$S(10) = \frac{2}{10}^1 = 1/5$
 
 This could be interpreted as the likelihood that a given part will still be functioning at 10 years given an expected lifespan of 2 years
 
@@ -750,7 +720,7 @@ This could be interpreted as the likelihood that a given part will still be func
 
 We previously found the inverse of the cdf, which is the quantile function:
 
-$F^{-1}(x)= x_0/(1-x)^{1/\alpha}$ 
+$F^{-1}(x)= (\frac{x_0}{1-x})^{1/\alpha}$ 
 
 With an input of $p = .8$, this function would return the number of years that it would be expected that 80% of units have failed.
 
@@ -765,8 +735,8 @@ With an input of $p = .8$, this function would return the number of years that i
 
 If this is to be a valid density, the integral from 0 to 1 should be 1. That is,
 
-$\int^1_0cx^kdx=1$
-$c(x^{k+1}/(k+1)|^1_0)=1$
+$\int\limits^1_0cx^kdx=1$
+$c(\frac{x^{k+1}}{k+1}\big|^1_0)=1$
 $c/(k+1)=1$
 $c=k+1$
 
@@ -776,9 +746,9 @@ $c=k+1$
 
 The cdf is just the integral from the lower bound to x, so 
 
-$F(x) = \int^x_0cx^kdx$
-$F(x) = c(x^{k+1}/(k+1)|^x_0)$
-$F(x) = cx^{k+1}/(k+1)$
+$F(x) = \int\limits^x_0cx^kdx$
+$F(x) = \frac{cx^{k+1}}{k+1}|^x_0$
+$F(x) = \frac{cx^{k+1}}{(k+1)}$
 
 and since we know $c=k+1$, 
 
@@ -795,11 +765,11 @@ $x= F^{-1}(x)^{k+1}$
 
 $log(x)= (k+1)log(F^{-1}(x))$
 
-$log(F^{-1}(x)) = log(x)/(k+1)$
+$log(F^{-1}(x)) = \frac{log(x)}{(k+1)}$
 
-$log(F^{-1}(x)) = log(x^{1/(k+1)})$
+$log(F^{-1}(x)) = log(x^{\frac{1}{(k+1)}})$
 
-$F^{-1}(x) = x^{1/(k+1)}$
+$F^{-1}(x) = x^{\frac{1}{(k+1)}}$
 
 
 ## d
@@ -808,9 +778,9 @@ $F^{-1}(x) = x^{1/(k+1)}$
 
 This is simply the cdf where the lower bound is $a$ and the upper bound is $b$, so
 
-$F(x) = c(x^{k+1}/(k+1)|^b_a)$
+$F(x) = \frac{cx^{k+1}}{k+1}\big|^b_a$
 
-$F(x) = (x^{k+1}|^b_a)$
+$F(x) = x^{k+1}\big|^b_a$
 
 $F(x) = b^{k+1}-a^{k+1}$
 
@@ -825,15 +795,15 @@ $F(x) = b^{k+1}-a^{k+1}$
 
 To make this a valid density, the following must be true:
 
-$\int_0^\infty f(x)dx = 1$
+$\int\limits_0^\infty f(x)dx = 1$
 
-$\int_0^\infty ce^{-x/2.5}dx = 1$
+$\int\limits_0^\infty ce^{-x/2.5}dx = 1$
 
-$-2.5c(e^{-x/2.5}|^\infty_0)=1$
+$-2.5c(e^{-x/2.5}\big|^\infty_0)=1$
 
 $-2.5c(0-1)=1$
 
-$c = 1/2.5$
+$c = \frac{1}{2.5}$
 
 
 ## b
@@ -842,9 +812,9 @@ $c = 1/2.5$
 
 This is the integral of the pdf from the lower bound (0) to x:
 
-$\int_0^x f(x)dx$
+$\int\limits_0^x f(x)dx$
 
-$\int_0^x e^{-x/2.5}/2.5dx$
+$\int\limits_0^x \frac{e^{-x/2.5}}{2.5}dx$
 
 $-(e^{-x/2.5}-1)$
 
@@ -878,7 +848,7 @@ $x = 1-e^{-F^{-1}(x)/2.5}$
 
 $1-x = e^{-F^{-1}(x)/2.5}$
 
-$log(1-x) = -F^{-1}(x)/2.5$
+$log(1-x) = \frac{-F^{-1}(x)}{2.5}$
 
 $F^{-1}(x) = -2.5log(1-x)$
 
@@ -895,11 +865,11 @@ $F^{-1}(0.5) = -2.5log(.5) \approx 1.73$
 
 To show that it is a valid density, we must show
 
-$\int^\infty_0x^{\alpha-1}e^{-x}dx/\Gamma(\alpha)$
+$\int\limits^\infty_0\frac{x^{\alpha-1}e^{-x}dx}{\Gamma(\alpha)}$
 
 We note that the integral is the same as
 
-$\Gamma(\alpha)/\Gamma(\alpha) = 1$
+$\frac{\Gamma(\alpha)}{\Gamma(\alpha)} = 1$
 
 We can also show that the density is positive for all values of $x >0$ by noting that $x^{\alpha-1}$ is always greater than 0 for all values of $x > 0$, $e^{-x}$ approaches 0 and thus is always positive, and as $\Gamma(\alpha) = (\alpha - 1)!$, for $\alpha > 1$ we know it to be positive as well. This, where $x > 0$ and $\alpha > 1$, this function is positive for all values.
 
@@ -909,9 +879,9 @@ We can also show that the density is positive for all values of $x >0$ by noting
 
 We know that the integral of the pdf from the lower bound (here $0$) to $x$ is the cdf, and the survival function is 1 - cdf, so
 
-$S(x) = 1 - \int^x_0x^{\alpha-1}e^{-x}dx/\Gamma(\alpha)$
+$S(x) = 1 - \int\limits^x_0\frac{x^{\alpha-1}e^{-x}dx}{\Gamma(\alpha)}$
 
-$S(x) = 1 - \Gamma(\alpha, x)/\Gamma(\alpha)$
+$S(x) = 1 - \frac{\Gamma(\alpha, x)}{\Gamma(\alpha)}$
 
 ## c
 
@@ -921,7 +891,7 @@ For the gamma density to be a valid density, the function must be greater than 0
 
 Additionally, the integral from lower to upper bound must equal 1, which we can show:
 
-$\int^\infty_0x^{\alpha-1}e^{-x/\beta}dx/\beta^\alpha\Gamma(\alpha)$
+$\int\limits^\infty_0\frac{x^{\alpha-1}e^{-x/\beta}dx}{\beta^\alpha\Gamma(\alpha)}$
 
 With substitution, where 
 
@@ -931,11 +901,11 @@ $du = dx/\beta$
 
 we find that our equation can be written as
 
-$\int^\infty_0u^{\alpha-1}e^{-u}du/\Gamma(\alpha)$
+$\int\limits^\infty_0\frac{u^{\alpha-1}e^{-u}du}{\Gamma(\alpha)}$
 
 We notice that the numerator is simply $\Gamma(\alpha)$ so,
 
-$\Gamma(\alpha)/\Gamma(\alpha) = 1$
+$\frac{\Gamma(\alpha)}{\Gamma(\alpha)} = 1$
 
 ## d 
 
@@ -958,7 +928,7 @@ ggplot(tib, aes(x = x, y = y)) + geom_line() + facet_grid(a~b)
 
 We take the integral from lower to upper bound and see if:
 
-$\int^\infty_0\gamma x^{\gamma-1}e^{-x^\gamma/\beta}/\beta = 1$
+$\int\limits^\infty_0\frac{\gamma x^{\gamma-1}e^{-x^\gamma/\beta}}{\beta} = 1$
 
 By substitution, if
 
@@ -966,15 +936,15 @@ $u = x^\gamma/\beta$
 
 and
 
-$du = \gamma x^{\gamma - 1}/\beta dx$
+$du = \frac{\gamma x^{\gamma - 1}}{\beta dx}$
 
 and we notice that
 
-$du\beta/\gamma = x^{\gamma-1}dx$
+$\frac{du\beta}{\gamma} = x^{\gamma-1}dx$
 
 we can write the original equation as
 
-$\int^\infty_0 e^{-u}du = -e^{-u}|^\infty_0 = 0--1 = 1$
+$\int\limits^\infty_0 e^{-u}du = -e^{-u}\Big|^\infty_0 = 0--1 = 1$
 
 additionally we note that neither $x^c$ nor $e^-x$ can become negative with values of $x > 0$.
 
@@ -1010,11 +980,11 @@ $-log(1-x) = F^{-1}(x)^\gamma/\beta$
 
 $-\beta log(1-x)=F^{-1}(x)^\gamma$
 
-$F^{-1}(x) = log(-\beta log(1-x))/\gamma$
+$F^{-1}(x) = \frac{log(-\beta log(1-x))}{\gamma}$
 
 The median is such that
 
-$F^{-1}(0.5) = log(-\beta log(1-0.5))/\gamma = log(-\beta log(.5))/\gamma$
+$F^{-1}(0.5) = \frac{log(-\beta log(1-0.5))}{\gamma} = \frac{log(-\beta log(.5))}{\gamma}$
 
 ## d
 
@@ -1038,9 +1008,9 @@ ggplot(tib, aes(x = x, y = y)) + geom_line() + facet_grid(g~b)
 
 First we show that the integral from lower to upper bound = 1:
 
-$1/(B(\alpha, \beta))\int^1_0x^{\alpha-1}(1-x)^{\beta-1}$
+$\frac{1}{B(\alpha, \beta)}\int\limits^1_0x^{\alpha-1}(1-x)^{\beta-1}$
 
-$B(\alpha, \beta)/B(\alpha, \beta) = 1$
+$\frac{B(\alpha, \beta)}{B(\alpha, \beta)} = 1$
 
 Additionally we know that $x^c$ is always positive as long as $x > 0$ and $(1-x)^c$ is positive so long as $x \le 1$. These conditions both fall within our bounds.
 
@@ -1052,7 +1022,7 @@ The uniform density is 1 from 0 to 1. For the uniform density to be a special ca
 
 In the case of $\alpha = 1, \beta = 1$, 
 
-$B(1,1)=\Gamma(1)\Gamma(1)/\Gamma(2) = 0!0!/1! = 1$
+$B(1,1)=\frac{\Gamma(1)\Gamma(1)}{\Gamma(2)} = 0!0!/1! = 1$
 
 so the Beta density function simplifies to
 
@@ -1060,7 +1030,7 @@ $x^{1-1}(1-x)^{1-1}=1$
 
 1 is 1 from 0 to 1. The integral is
 
-$\int^1_01dx = x|^1_0=1-0=1$
+$\int\limits^1_01dx = x\big|^1_0=1-0=1$
 
 so it is also valid in this regard as well.
 
@@ -1077,3 +1047,112 @@ tib <- expand_grid(x = seq(0, 1, by = 0.01), a = c(0.5, 1, 3, 5), b = c(0.5, 1, 
 ggplot(tib, aes(x = x, y = y)) + geom_line() + facet_grid(a~b) + coord_cartesian(ylim = c(0, 2))
 ```
 
+# Problem 15 
+
+------------------------------------------------------------------
+
+## a
+
+------------------------------------------------------------------
+
+Suppose 
+
+$\sum\limits^\infty_{x=0}\frac{(e^{-\lambda}\lambda^x)}{x!} = 1$
+
+this can be written as
+
+$\frac{(e^{-\lambda}\lambda^0)}{0!} + \frac{(e^{-\lambda}\lambda^1)}{1!} + ...+ \frac{(e^{-\lambda}\lambda^n)}{n!}  = 1$
+
+which we can factor the constant out from:
+
+$e^{-\lambda}(\frac{\lambda^0}{0!} + \frac{\lambda^1}{1!} + ...) = 1$
+
+and by taking the natural log of both sizes
+
+$-\lambda+ log(\frac{\lambda^0}{0!} + \frac{\lambda^1}{1!} + ...) = 0$
+
+which is 
+
+$log(\frac{\lambda^0}{0!} + \frac{\lambda^1}{1!} + ...) = \lambda$
+
+$\frac{\lambda^0}{0!} + \frac{\lambda^1}{1!} + ... = e^\lambda$
+
+And we can look up the Taylor series of $e^x$ to find it is of the form
+
+$e^x = \frac{x^0}{0!} + \frac{x^1}{1!} + \frac{x^2}{2!}+...$
+
+which matches the left hand side when $x = \lambda$, so
+
+$e^\lambda= e^\lambda$
+```{marginfigure}
+$\blacksquare$
+```
+
+# Problem 16
+
+------------------------------------------------------------------
+
+## a
+
+------------------------------------------------------------------
+
+To be a valid pmf, the sum of all values must total to 1 and no value can be below 0.
+
+For the second point, if $0 \le p \le 1$, then $p$ will always remain positive and $1-p$ will always remain positive (and by extension $(1-p)^x$ will remain positive so long as $x \ge 0$). Therefore their product will always be greater than 0.
+
+To find if the sum converges to 1, we define $s$ as
+
+$p(1-p)^0 + p(1-p)^1 + p(1-p)^2 + ...$
+
+And therefore $s(1-p)$ is
+
+$p(1-p)^1 + p(1-p)^2 + p(1-p)^3 + ...$
+
+So 
+
+$s - s(1-p) = p$
+$s(1-1+p) = p$
+$sp = p$
+$s = 1$
+```{marginfigure}
+$\blacksquare$
+```
+
+## b
+
+------------------------------------------------------------------
+
+Given the cdf 
+
+$\sum\limits_{x = 1}^np(1-p)^{x-1}$
+
+Which we can write out as
+
+$p((1-p)^0 +...+ (1-p)^{n-1})$
+
+If we define 
+
+$s = (1-p)^0 +...+ (1-p)^{n-1}$
+
+then
+
+$s(1-p) = (1-p)^1 +...+ (1-p)^{n}$
+
+so that
+
+$s - s(1-p) = (1-p)^0 - (1-p)^n$
+
+Simplified,
+
+$sp = 1 - (1-p)^n$
+
+Returning to our original equation, 
+
+$\sum\limits_{x = 1}^np(1-p)^{x-1} = ps = 1 - (1-p)^n$
+
+So then the survival function is given by 1 - cdf, or
+
+$S(x) =1- 1 + (1-p)^x = (1-p)^x$
+```{marginfigure}
+$\blacksquare$
+```

@@ -46,3 +46,107 @@ $-2\mu^2 = -2\mu^2$
 
 Which we know to be true.
 
+
+
+# Problem 2
+
+-----------------------------------
+
+## a
+
+-----------------------------------
+
+$g$ is a valid density if all values are positive and if the integral across all values is 1.
+
+We know all values are positive because it is the sum of three densities (which themselves must always be positive), each of which is multiplied by a scalar that is also positive.
+
+To show that the integral across all values is equal to 1,
+
+$\int\limits_{-\infty}^{\infty}g(x) = 1$
+
+Since we know
+
+$g(x) = \pi_1f_1(x) + \pi_2f_2(x) + \pi_3f_3(x)$
+
+then
+
+$\int\limits_{-\infty}^{\infty}g(x) = \int\limits_{-\infty}^{\infty}\Big(\pi_1f_1(x) + \pi_2f_2(x) + \pi_3f_3(x)\Big)$
+
+which is equivalent to
+
+$\int\limits_{-\infty}^{\infty}g(x) = \pi_1\int\limits_{-\infty}^{\infty}f_1(x) + \pi_2\int\limits_{-\infty}^{\infty}f_2(x)+ \pi_3\int\limits_{-\infty}^{\infty}f_3(x)$
+
+and since each function $f_i$ is a valid density their integrals must equal 1, giving
+
+$\int\limits_{-\infty}^{\infty}g(x) = \pi_1 + \pi_2 + \pi_3$
+
+Since we are additionally told $\Sigma^3_{i=1}\pi_i = 1$
+
+$\int\limits_{-\infty}^{\infty}g(x) = 1$
+```{marginfigure}
+$\blacksquare$
+```
+
+
+## b
+
+-----------------------------------
+
+We know that mean (or expected value) for a continous distribution is given by
+
+$\int\limits_{-\infty}^{\infty}xg(x)$
+
+Which is
+
+$\int\limits_{-\infty}^{\infty}x\Big(\pi_1f_1(x)+\pi_2f_2(x)+\pi_3f_3(x)\Big)$
+
+which can be expanded to 
+
+$\pi_1\int\limits_{-\infty}^{\infty}xf_1(x) + \pi_2\int\limits_{-\infty}^{\infty}xf_2(x)+\pi_3\int\limits_{-\infty}^{\infty}xf_3(x)$
+
+And since we know the definition of the expected value, we can rewrite this as
+
+$E[X] = \pi_1\mu_1 + \pi_2\mu_2+\pi_3\mu_3$
+
+
+## c
+
+-----------------------------------
+
+We have previously shown that the definition of 
+
+$Var(x) = E[X^2] - E[X]^2$
+
+We can represent the variance of $g$ in these terms:
+
+$\int\limits_{-\infty}^{\infty}x^2g(x) - [\int\limits_{-\infty}^{\infty}xg(x)]^2$
+
+The right term we have previously found - it's simply the square of the expectation value we found in the previous problem. The left terms can be found by first writing $g$ in terms of $f$
+
+$\int\limits_{-\infty}^{\infty}x^2g(x) = \int\limits_{-\infty}^{\infty}x^2\Big(\pi_1f_1(x)+\pi_2f_2(x)+\pi_3f_3(x)\Big)$
+
+or distributed:
+
+$\int\limits_{-\infty}^{\infty}x^2g(x) = \pi_1\int\limits_{-\infty}^{\infty}x^2f_1(x) + \pi_2\int\limits_{-\infty}^{\infty}x^2f_2(x) + \pi_3\int\limits_{-\infty}^{\infty}x^2f_3(x)$
+
+
+and then noticing that the variance equation can be written as follows:
+
+$\sigma^2 = E[X^2] + \mu^2$
+
+And solving for $E[X^2]$:
+
+$E[X^2] = \mu^2 + \sigma^2$
+
+which is equivalent to
+
+$\int\limits_{-\infty}^{\infty}x^2f_i(x) = \mu^2_i + \sigma^2_i$
+
+Substituting in, we get
+
+$\int\limits_{-\infty}^{\infty}x^2g(x) = \pi_1(\mu^2_1 + \sigma^2_1) +\pi_2(\mu^2_2 + \sigma^2_2) +\pi_3(\mu^2_3 + \sigma^2_3)$
+
+Combining this left hand term with the right hand term, we get
+
+$Var(x) = \pi_1(\mu^2_1 + \sigma^2_1) +\pi_2(\mu^2_2 + \sigma^2_2) +\pi_3(\mu^2_3 + \sigma^2_3) -(\pi_1\mu_1 + \pi_2\mu_2+\pi_3\mu_3)^2$
+
