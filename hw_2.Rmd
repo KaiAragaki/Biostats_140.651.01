@@ -195,3 +195,87 @@ $\int\limits_{0}^{1}kx^{k+2} + \int\limits_{0}^{1}x^{k+2}$
 We can see by analogy to the first problem that this will integrate and simplify to
 
 $\frac{k+1}{k+3}$
+
+
+# Problem 4
+
+-----------------------------------
+
+## a
+
+-----------------------------------
+
+To calculate the mean, we know that the mean is, for the limits of this given function 
+
+$E[X] = \int\limits^\infty_{0}xf(x) = \frac{1}{3.3}\int\limits^\infty_{0}xe^{\frac{-x}{3.3}}$
+
+We can integrate by parts using - that is, we know the following to be true:
+
+$\int udv = uv - \int vdu$
+
+so if we set $u = x$, $du = dx$, $v = -3.3e^{\frac{-x}{3.3}}$, and $dv = e^{\frac{-x}{3.3}}dx$,
+
+$\int xe^{\frac{-x}{3.3}}= 3.3xe^{\frac{-x}{3.3}} + 3.3\int e^{\frac{-x}{3.3}}dx = 3.3xe^{\frac{-x}{3.3}} -  3.3^2e^{\frac{-x}{3.3}}$
+
+Substituting this integral back into the original, we obtain
+
+$xe^{\frac{-x}{3.3}} -  3.3e^{\frac{-x}{3.3}}$
+
+evaluating at its limits of $0$ and $\infty$, and with the knowledge that $e^{-x}$ approaches 0 much faster than $x$ approaches infinity,
+
+$xe^{\frac{-x}{3.3}} - 3.3e^{\frac{-x}{3.3}}\Big|^\infty_0 = [0 + 0] - [0 - 3.3] = 3.3$
+```{marginfigure}
+$\blacksquare$
+```
+
+To calculate the variance, we solve the following:
+
+$Var(X) = \int\limits^\infty_{0}x^2f(x) - E[X]^2$ 
+
+But since we know the value of $E[X]$ (and squaring it is trivial) we focus our efforts on the left hand side of the equation:
+
+$\int\limits^\infty_{0}x^2f(x) = \frac{1}{3.3}\int\limits^\infty_{0}x^2e^{\frac{-x}{3.3}}$
+
+As before, we begin to integrate by parts, with $u = x^2$, $du = 2xdx$, $v = -3.3e^{\frac{-x}{3.3}}$, and $dv = e^{\frac{-x}{3.3}}$:
+
+$\frac{1}{3.3}[-3.3x^2e^{\frac{-x}{3.3}}+6.6\int e^{\frac{-x}{3.3}}xdx]$
+
+We integrate by parts again, this time where $u = x$, $du = dx$, $v = -3.3e^{\frac{-x}{3.3}}$, and $dv = e^{\frac{-x}{3.3}}dx$,
+
+$\frac{1}{3.3}\Big[-3.3x^2e^{\frac{-x}{3.3}}+6.6[-3.3xe^{\frac{-x}{3.3}} + 3.3 \int e^{\frac{-x}{3.3}}dx]\Big]$
+
+Which is equivalent to
+
+$\frac{1}{3.3}\Big[-3.3x^2e^{\frac{-x}{3.3}}+6.6[-3.3xe^{\frac{-x}{3.3}} - 3.3^2 e^{\frac{-x}{3.3}}]\Big]$
+
+As before, evaluating at the limits $0$ to $\infty$ and substitute back in $E[X]^2$
+
+$Var(X) = 2(3.3)^2-3.3^2 = 3.3^2 = 10.89$
+```{marginfigure}
+$\blacksquare$
+```
+
+## b
+
+-----------------------------------
+
+If we substitute $3.3$ for $\beta$ in our previous solutions, we find
+
+$E[X] = xe^{\frac{-x}{\beta}} - \beta e^{\frac{-x}{\beta}}\Big|^\infty_0 = [0 + 0] - [0 - \beta] = \beta$
+
+and 
+
+$Var(X) = \frac{1}{\beta}\Big[-\beta x^2e^{\frac{-x}{\beta}}+2\beta[-\beta xe^{\frac{-x}{\beta}} - \beta^2 e^{\frac{-x}{\beta}}]\Big] - \beta^2 = \beta^2$
+
+## c
+
+-----------------------------------
+
+```{r}
+tib <- expand_grid(x = seq(0, 10, by = 0.01),
+              b = c(0.1, 1, 10)) %>% 
+        mutate(y = (1/b)*exp(-x/b))
+
+ggplot(tib, aes(x = x, y = y, color = as.factor(b))) + scale_color_viridis_d(end = 0.8) + geom_line()
+```
+
