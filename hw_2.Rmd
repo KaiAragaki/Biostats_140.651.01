@@ -279,3 +279,56 @@ tib <- expand_grid(x = seq(0, 10, by = 0.01),
 ggplot(tib, aes(x = x, y = y, color = as.factor(b))) + scale_color_viridis_d(end = 0.8) + geom_line()
 ```
 
+# Problem 5
+
+-----------------------------------
+
+## a
+
+-----------------------------------
+
+We know the mean to be 
+
+$\int\limits_0^\infty xf(x)dx = \int\limits_0^\infty \frac{1}{\beta^\alpha\Gamma(\alpha)}x^\alpha e^{\frac{-x}{\beta}}dx$
+
+We begin by substituting, where $u = \frac{x}{\beta}$ and $du = \frac{dx}{\beta}$, which implies $x = \beta u$ and $dx = \beta du$:
+
+$\int\limits_0^\infty \frac{1}{\beta^\alpha\Gamma(\alpha)}(\beta u)^\alpha e^{-u}\beta du = \int\limits_0^\infty \frac{1}{\Gamma(\alpha)}u^\alpha  e^{-u}\beta du = \frac{\Gamma(\alpha+1)}{\Gamma(\alpha)}\beta$
+
+Since we know that $\Gamma(\alpha) = (\alpha-1)!$, then
+
+$\frac{\Gamma(\alpha+1)}{\Gamma(\alpha)}\beta = \alpha\beta$
+```{marginfigure}
+$\blacksquare$
+```
+
+For the variance, we know
+
+$Var(X) = E[X^2] - E[X]^2$
+
+We begin to solve for the first portion:
+
+$E[X^2] = \int \limits _0^\infty x^2f(x) = \int\limits_0^\infty \frac{1}{\beta^\alpha\Gamma(\alpha)}x^{\alpha+1} e^{\frac{-x}{\beta}}dx$
+
+Using the same substitution as above, we can write it as
+
+$\int\limits_0^\infty \frac{1}{\beta^\alpha\Gamma(\alpha)}(\beta u)^{\alpha+1} e^u \beta du = \int\limits_0^\infty \frac{1}{\Gamma(\alpha)}\beta^2u^{\alpha+1} e^udu = \frac{\Gamma(\alpha+2)}{\Gamma(\alpha)}\beta^2 = (\alpha + 1)\alpha\beta^2 = \alpha^2\beta^2 + \alpha\beta^2$
+
+Solving for second portion is as simple as squaring the value we found for the mean, so in total,
+
+$Var(X) = E[X^2] - E[X]^2 = \alpha^2\beta^2 + \alpha\beta^2 - \alpha^2\beta^2 = \alpha\beta^2$
+```{marginfigure}
+$\blacksquare$
+```
+
+## b
+
+-----------------------------------
+
+We can simply substitute in these values for $\alpha$ and $\beta$:
+
+$\mu = \alpha\beta = \frac{2p}{2} = p$
+
+$\sigma^2 = \alpha\beta^2 = \frac{4p}{2} = 2p$
+
+

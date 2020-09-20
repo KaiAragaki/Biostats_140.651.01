@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.9.12)  17 SEP 2020 19:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.9.12)  17 SEP 2020 20:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -620,15 +620,25 @@ Package: nicefrac 1998/08/04 v0.9b Nice fractions
 \L@UnitsRaiseDisplaystyle=\skip96
 \L@UnitsRaiseTextstyle=\skip97
 \L@UnitsRaiseScriptstyle=\skip98
-)) (c:/Users/adama/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
-\UL@box=\box97
-\UL@hyphenbox=\box98
+))
+(c:/Users/adama/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fancyvrb/fancyvrb.
+sty
+Package: fancyvrb 2020/05/03 v3.6 verbatim text (tvz,hv)
+\FV@CodeLineNo=\count291
+\FV@InFile=\read2
+\FV@TabBox=\box97
+\c@FancyVerbLine=\count292
+\FV@StepNumber=\count293
+\FV@OutFile=\write3
+) (c:/Users/adama/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box98
+\UL@hyphenbox=\box99
 \UL@skip=\skip99
 \UL@hook=\toks28
 \UL@height=\dimen188
-\UL@pe=\count291
+\UL@pe=\count294
 \UL@pixel=\dimen189
-\ULC@box=\box99
+\ULC@box=\box100
 Package: ulem 2019/11/18
 \ULdepth=\dimen190
 )
@@ -643,31 +653,31 @@ Package morefloats Info: Maximum number of possible floats asked for: 36
 (c:/Users/adama/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backen
 d-pdftex.def
 File: l3backend-pdftex.def 2020-09-11 L3 backend support: PDF output (pdfTeX)
-\l__kernel_color_stack_int=\count292
-\l__pdf_internal_box=\box100
+\l__kernel_color_stack_int=\count295
+\l__pdf_internal_box=\box101
 ) (./hw_2.aux)
 \openout1 = `hw_2.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-\AtBeginShipoutBox=\box101
-Package hyperref Info: Link coloring OFF on input line 70.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 108.
+LaTeX Font Info:    ... okay on input line 108.
+\AtBeginShipoutBox=\box102
+Package hyperref Info: Link coloring OFF on input line 108.
 
 (c:/Users/adama/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.s
 ty
@@ -681,17 +691,17 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count293
+\c@section@level=\count296
 )
-LaTeX Info: Redefining \ref on input line 70.
-LaTeX Info: Redefining \pageref on input line 70.
-LaTeX Info: Redefining \nameref on input line 70.
+LaTeX Info: Redefining \ref on input line 108.
+LaTeX Info: Redefining \pageref on input line 108.
+LaTeX Info: Redefining \nameref on input line 108.
 (./hw_2.out) (./hw_2.out)
-\@outlinefile=\write3
-\openout3 = `hw_2.out'.
+\@outlinefile=\write4
+\openout4 = `hw_2.out'.
 
 ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 70.
+LaTeX Info: Redefining \selectfont on input line 108.
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -739,13 +749,13 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \langwohyphens=\language3
-LaTeX Font Info:    Trying to load font information for U+msa on input line 82.
-
+LaTeX Font Info:    Trying to load font information for U+msa on input line 120
+.
 (c:/Users/adama/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 82.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 120
+.
 (c:/Users/adama/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -755,65 +765,94 @@ x.map}]
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 211.
+This message occurred on input line 249.
 
 [2]
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 274.
+This message occurred on input line 312.
 
 [3]
+
+Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
+set up.
+This message occurred on input line 395.
+
+[4]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 4
+00.
+(c:/Users/adama/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 401.
+<C:/Users/adama/Documents/Biostats_140.651.01/output/hw_2_files/figure-latex/un
+named-chunk-4-1.pdf, id=74, 289.08pt x 180.675pt>
+File: C:/Users/adama/Documents/Biostats_140.651.01/output/hw_2_files/figure-lat
+ex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
+<use C:/Users/adama/Documents/Biostats_140.651.01/output/hw_2_files/figure-late
+x/unnamed-chunk-4-1.pdf>
+Package pdftex.def Info: C:/Users/adama/Documents/Biostats_140.651.01/output/hw
+_2_files/figure-latex/unnamed-chunk-4-1.pdf  used on input line 409.
+(pdftex.def)             Requested size: 312.01648pt x 195.01028pt.
+
+Overfull \hbox (12.01648pt too wide) in paragraph at lines 409--410
+[][]  
+ []
+
 
 Package bibentry Warning: You have used \nobibliography* 
 (bibentry)                without a following \bibliography.
 (bibentry)                You may not be able to run BibTeX.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 334.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 423.
 
 Class tufte-handout Warning: Proper spacing of small-caps letters has not been 
 set up.
-This message occurred on input line 334.
+This message occurred on input line 423.
 
-[4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 334.
+[5 <c:/Users/adama/Documents/Biostats_140.651.01/output/hw_2_files/figure-latex
+/unnamed-chunk-4-1.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 423.
 (./hw_2.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 334.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 334.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 423.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 423.
 Package rerunfilecheck Info: File `hw_2.out' has not changed.
-(rerunfilecheck)             Checksum: 6FE9A78E03682E67E418FA70AB31856A;368.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 334.
+(rerunfilecheck)             Checksum: B0735D312FED8B851ED1D1F51DDCCFC8;461.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 423.
  ) 
 Here is how much of TeX's memory you used:
- 12790 strings out of 482824
- 185244 string characters out of 5954529
- 461781 words of memory out of 5000000
- 27875 multiletter control sequences out of 15000+600000
- 545881 words of font info for 58 fonts, out of 8000000 for 9000
+ 13245 strings out of 482824
+ 193075 string characters out of 5954529
+ 473331 words of memory out of 5000000
+ 28311 multiletter control sequences out of 15000+600000
+ 546194 words of font info for 59 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 55i,12n,51p,304b,382s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,12n,51p,598b,382s stack positions out of 5000i,500n,10000p,200000b,80000s
  <c:/Users/adama/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/e
-c/ecti1095.600pk> <c:/Users/adama/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/lj
-four/jknappen/ec/ecrm1000.600pk> <c:/Users/adama/AppData/Roaming/TinyTeX/texmf-
-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> <c:/Users/adama/AppData/Roaming
-/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1440.600pk><c:/Users/adama/A
-ppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:
-/Users/adama/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmmi10.pfb><c:/Users/adama/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmi5.pfb><c:/Users/adama/AppData/Roaming/TinyTeX/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi7.pfb><c:/Users/adama/AppData/Roaming/TinyTeX/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/adama/AppData/Roami
-ng/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c:/Users/adama/A
-ppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/U
-sers/adama/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy10.pfb><c:/Users/adama/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmsy5.pfb><c:/Users/adama/AppData/Roaming/TinyTeX/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy7.pfb><c:/Users/adama/AppData/Roaming/TinyTeX/texm
-f-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on hw_2.pdf (4 pages, 129124 bytes).
+c/ectt1000.600pk> <c:/Users/adama/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/lj
+four/jknappen/ec/ecti1095.600pk> <c:/Users/adama/AppData/Roaming/TinyTeX/texmf-
+var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> <c:/Users/adama/AppData/Roaming
+/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> <c:/Users/adama/
+AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1440.600pk><c
+:/Users/adama/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmex10.pfb><c:/Users/adama/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi10.pfb><c:/Users/adama/AppData/Roaming/TinyTeX/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi5.pfb><c:/Users/adama/AppData/Roaming/TinyTeX/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><c:/Users/adama/AppData/Roa
+ming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/Users/adam
+a/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><c
+:/Users/adama/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr7.pfb><c:/Users/adama/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy10.pfb><c:/Users/adama/AppData/Roaming/TinyTeX/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy5.pfb><c:/Users/adama/AppData/Roaming/TinyTeX/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/Users/adama/AppData/Roami
+ng/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on hw_2.pdf (5 pages, 155092 bytes).
 PDF statistics:
- 212 PDF objects out of 1000 (max. 8388607)
- 105 compressed objects within 2 object streams
- 25 named destinations out of 1000 (max. 500000)
- 33 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 277 PDF objects out of 1000 (max. 8388607)
+ 128 compressed objects within 2 object streams
+ 34 named destinations out of 1000 (max. 500000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
