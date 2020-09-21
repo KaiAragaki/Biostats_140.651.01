@@ -450,3 +450,37 @@ $Var(X) =\lambda^2 + \lambda - E[X]^2 = \lambda^2 + \lambda - \lambda^2 = \lambd
 ```{marginfigure}
 $\blacksquare$
 ```
+
+# Problem 8
+
+-----------------------------------
+
+## a
+
+-----------------------------------
+
+We can write the uniform distribution as
+
+$f(x) = 1$
+
+So the expected value (for $0 < x < 1$) can be calculated as
+
+$E[X] = \int\limits^1_0 xdx = \frac{x^2}{2}\Big|^1_0 = \frac{1}{2}$
+
+Converting to a percentage, the expected percentage of a randomly selected person's body that is covered in freckles is $50\%$
+
+## b
+
+-----------------------------------
+
+The variance is given by
+
+$Var(X) = E[X^2] - E[X]^2$
+
+Beginning with the first portion,
+
+$E[X^2] = \int\limits^1_0 x^2dx = \frac{x^3}{3}\Big|^1_0 = \frac{1}{3}$
+
+So,
+
+$Var(X) = \frac{1}{3} - \frac{1}{4} = \frac{1}{12}$
