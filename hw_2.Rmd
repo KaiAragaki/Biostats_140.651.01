@@ -383,3 +383,70 @@ $\blacksquare$
 The mean for discrete functions can be written as
 
 $E[X] = \sum\limits_{x = 0}^{\infty}xp(x) = \sum\limits_{x = 0}^{\infty}\frac{xe^{-\lambda}\lambda^x}{x!}$
+
+We know $e^{-\lambda}$ is constant, so we can pull it out of the sum:
+
+$e^{-\lambda}\sum\limits_{x = 0}^{\infty}\frac{x\lambda^x}{x!}$
+
+We further note that the first term is 0 - so we can safely start the sum at $x = 1$:
+
+$e^{-\lambda}\sum\limits_{x = 1}^{\infty}\frac{x\lambda^x}{x!}$
+
+We now note two things: Each term in our summation has at least one $\lambda$, which can be factored out. Additionally, $\frac{x}{x!} = \frac{1}{(x-1)!}$, so the sum can be rewritten as
+
+$e^{-\lambda}\lambda\sum\limits_{x = 1}^{\infty}\frac{\lambda^{x-1}}{(x-1)!}$
+
+By performing a change of variable, where $y = x - 1$, we can more easily see a familiar infinite sum:
+
+$e^{-\lambda}\lambda\sum\limits_{y = 1}^{\infty}\frac{\lambda^{y}}{y!} = e^{-\lambda}e^\lambda\lambda = \lambda$
+```{marginfigure}
+$\blacksquare$
+```
+
+## b
+
+-----------------------------------
+
+For this problem, we are given a hint of $E[X(X-1)]$. Let's evaluate this:
+
+$E[X(X-1)] = \sum\limits_{x=0}^\infty \frac{x(x-1)e^{-\lambda}\lambda^x}{x!}$ 
+
+We initially note that the first two terms will be 0, so we can shift our sum to start at 2:
+
+$\sum\limits_{x=2}^\infty \frac{x(x-1)e^{-\lambda}\lambda^x}{x!}$ 
+
+We also note again that $e^{-\lambda}$ is constant and can be factored out:
+
+$e^{-\lambda}\sum\limits_{x=2}^\infty \frac{x(x-1)\lambda^x}{x!}$
+
+Further still, we note that the first two terms of $x!$ can be cancelled out with the terms in the numerator:
+
+$e^{-\lambda}\sum\limits_{x=2}^\infty \frac{\lambda^x}{(x-2)!}$
+
+If we examine the first few terms, we will notice that each term has at least $\lambda^2$. We can factor this out as well:
+
+$e^{-\lambda}\lambda^2\sum\limits_{x=2}^\infty \frac{\lambda^{x-2}}{(x-2)!}$
+
+A change of variable (where $y = x-2$) lets us see that this is a familiar sum:
+
+$e^{-\lambda}\lambda^2\sum\limits_{y=0}^\infty \frac{\lambda^{y}}{(y)!} = e^{-\lambda}e^\lambda\lambda^2 = \lambda^2$
+
+We know this to be $E[X(X-1)]$. Manipulating this expression, we see
+
+$E[X(X-1)] = E[X^2-X]$
+
+Since we know expectation values can be separated, this is equivalent to 
+
+$E[X^2] - E[X]$
+
+and we know $E[X] = \lambda$
+So we can solve for $E[X^2]$:
+
+$\lambda^2 = E[X^2] - \lambda \implies E[X^2] = \lambda^2 + \lambda$
+
+So,
+
+$Var(X) =\lambda^2 + \lambda - E[X]^2 = \lambda^2 + \lambda - \lambda^2 = \lambda$
+```{marginfigure}
+$\blacksquare$
+```
