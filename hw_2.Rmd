@@ -689,4 +689,131 @@ $Var(X) = E[X^2] - E[X]^2 = \frac{\beta\alpha^2}{\beta-2} - \Big(\frac{\beta\alp
 
 -----------------------------------
 
-We can consider this to be a CDF of a binomial distribution, where the number of trials = 10. However, we also need to subtract 
+The expected value can be calculated as 
+
+$E[X] = Win*Prob + Loss*(1-Prob)$
+
+Where in this instance we assume a fair coin ($Prob = 0.5$) that has flips that are independent (the outcome of one does not effect the outcome of the other) and there can only be two outcomes - heads or tails.
+
+In this example, $Win  = \$1$ and $Loss = -\$1$, such that
+
+$E[X] = \$1* 0.5  -\$1*0.5 = 0$
+
+On a long enough timeframe, regardless of the number of tosses, we expect the true mean to be 0 - we will neither win nor lose.
+
+## b
+
+-----------------------------------
+
+$Var(X) = E[X^2] - E[X]^2$
+
+$E[X^2] = \$1^2*0.5+(-\$1)^2*0.5 = \$^21$
+
+$E[X]^2 = 0$
+
+$Var(X) = \$^21$
+
+## c
+
+-----------------------------------
+
+In the case that $p = 0.4$,
+
+$E[X] = \$1* 0.4  -\$1*0.6 = -\$0.2$
+
+So in the case of 10 games, assuming they are iid, we will lose $2.
+
+$E[X^2] = \$1^2*0.4+(-\$1)^2*0.6 = \$^21$
+
+$E[X]^2 = \$^20.04$
+
+$Var(X) = \$^20.96$
+
+
+# Problem 19
+
+-----------------------------------
+
+## a
+
+-----------------------------------
+
+```{r}
+temp <- matrix(sample(1:6, 1000*10, replace = T), 1000)
+xBar <- apply(temp, 1, mean)
+```
+
+```{r}
+hist(xBar, breaks = 100)
+```
+
+## b
+
+-----------------------------------
+
+```{r}
+mean(xBar)
+```
+The mean of `xBar` is close to the expectation value for a die. We would expect this to be true since the expectation value for a die is indeed 3.5. When we we take samples with replacement from any distribution and take the means, the means tend to be normally distributed, and the mean of means tends to be centered on the mean of the original population. This is due to the central limit.
+
+```{r}
+sd(xBar)
+```
+
+## c
+
+-----------------------------------
+
+While the standard deviation might not look familiar, the variance could:
+
+```{r}
+sd(xBar)^2
+```
+
+It looks to be about 1/10th of the true variance of a die (~2.9167) - so we can expect the standard deviation to be similar to sqrt(var/10):
+
+```{r}
+sqrt((sum(((1:6)^2)/6) - 3.5^2)/10)
+
+sd(xBar)
+
+```
+
+# Problem 20
+
+-----------------------------------
+
+## a
+
+-----------------------------------
+
+```{r}
+xBar <- apply(matrix(runif(1000*10), 1000), 1, mean)
+```
+
+```{r}
+hist(xBar, breaks = 100)
+```
+## b
+
+-----------------------------------
+```{r}
+mean(xBar)
+```
+
+As before, the mean of these means approaches the mean of the distribution which it was sampled (the uniform distribution has a mean of 0.5). Again this is because of the central limit theorem.
+
+## c
+
+-----------------------------------
+
+```{r}
+sd(xBar)
+```
+Similarly, the reltionship is easier to make if we take the square and compare it to the variance of the uniform distribution:
+
+```{r}
+sd(xBar)^2
+sd(runif(1000*10))^2
+```
+Again we note that the variance of this sampling distribution is close to $Var(X)/n$ where $Var(X)$ is the variance of the distribution from which samples are taken, and $n$ is the number of 'groups' that are being aggregated into means.
