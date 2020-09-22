@@ -484,3 +484,40 @@ $E[X^2] = \int\limits^1_0 x^2dx = \frac{x^3}{3}\Big|^1_0 = \frac{1}{3}$
 So,
 
 $Var(X) = \frac{1}{3} - \frac{1}{4} = \frac{1}{12}$
+
+# Problem 9
+
+-----------------------------------
+
+## a
+
+-----------------------------------
+
+If we consider $X$ to be the number of songs listened to AFTER the repeated song was listened to, then we know that $P(X = 1) = 0$ - listening to just one song cannot be a repeat of anything.
+
+If we manage to listen to all the songs without a repeat, the next song we listen to MUST be a repeat: there is no song in the list that exists that we have not yet heard $P(X = 1001) = 1$. Any additional songs are not considered. So, $2 \le X \le 1001$.
+
+Let's think about what the probability of listening to 3 songs (and hearing a repeat on the third song) is.
+
+The probability of the first song not being a repeat is quite good, so the probability of this event happening is 1. The probability of the seoncd song not being a repeat is also quite good, but one of the songs is forbidden. The probability of having picked a song not yet played before is therefore $999/1000$. The third song is where we picked a song we have already heard before. The probability of that happening is quite slim - $2/1000$. Altogether, $P(X = 3) = \frac{1000}{1000}\frac{999}{1000}\frac{2}{1000}$
+
+This is all well and good, but suppose we want to generalize this equation for $x$. Say we listened to $x$ songs, where the $x$th song was the duplicate. To generalize this, we can write
+
+$P(X=x) = \frac{1000}{1000}\frac{999}{1000}...\frac{1000-(x+2)}{1000}\frac{x-1}{1000}$
+
+The denominator can be simplified to $1000^x$, and the top reeks of a factorial...to me it looks very much like the front end of a factorial. And the front end of a factorial is simply a factorial with the back end divided out. So the numerator is something like
+
+$1000*999*998*...*1000-(x+2) = 1000!/(1000-(x+1))!$
+
+So altogether it becomes
+
+$P(X = x) = \frac{1000!(x-1)}{1000^x(1000-(x+1))!}$
+
+
+## b
+
+-----------------------------------
+
+The expected value can be calculated as 
+
+$\sum \limits _{x = 2}^{1001} x\frac{1000!(x-1)}{1000^x(1000-(x+1))!}$
