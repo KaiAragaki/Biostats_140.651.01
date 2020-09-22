@@ -486,6 +486,93 @@ ggplot(tib, aes(x = x, y = y, color = as.factor(b))) + scale_color_viridis_d(end
 <p><span class="math inline">\(Var(X) = \frac{\alpha(\alpha+1)}{(\alpha + \beta + 1)(\alpha + \beta)} - \Big(\frac{\alpha}{\alpha + \beta}\Big)^2 = \frac{\alpha(\alpha+1)(\alpha + \beta) - (\alpha + \beta + 1)\alpha^2}{(\alpha + \beta + 1)(\alpha + \beta)^2} = \frac{\alpha\beta}{(\alpha + \beta + 1)(\alpha + \beta)^2}\)</span> <label for="tufte-mn-7" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-7" class="margin-toggle"><span class="marginnote"><span style="display: block;"><span class="math inline"><span class="math inline">\(\blacksquare\)</span></span></span></span></p>
 </div>
 </div>
+<div id="problem-7" class="section level1">
+<h1>Problem 7</h1>
+<hr />
+<div id="a-5" class="section level2">
+<h2>a</h2>
+<hr />
+<p>The mean for discrete functions can be written as</p>
+<p><span class="math inline">\(E[X] = \sum\limits_{x = 0}^{\infty}xp(x) = \sum\limits_{x = 0}^{\infty}\frac{xe^{-\lambda}\lambda^x}{x!}\)</span></p>
+<p>We know <span class="math inline">\(e^{-\lambda}\)</span> is constant, so we can pull it out of the sum:</p>
+<p><span class="math inline">\(e^{-\lambda}\sum\limits_{x = 0}^{\infty}\frac{x\lambda^x}{x!}\)</span></p>
+<p>We further note that the first term is 0 - so we can safely start the sum at <span class="math inline">\(x = 1\)</span>:</p>
+<p><span class="math inline">\(e^{-\lambda}\sum\limits_{x = 1}^{\infty}\frac{x\lambda^x}{x!}\)</span></p>
+<p>We now note two things: Each term in our summation has at least one <span class="math inline">\(\lambda\)</span>, which can be factored out. Additionally, <span class="math inline">\(\frac{x}{x!} = \frac{1}{(x-1)!}\)</span>, so the sum can be rewritten as</p>
+<p><span class="math inline">\(e^{-\lambda}\lambda\sum\limits_{x = 1}^{\infty}\frac{\lambda^{x-1}}{(x-1)!}\)</span></p>
+<p>By performing a change of variable, where <span class="math inline">\(y = x - 1\)</span>, we can more easily see a familiar infinite sum:</p>
+<p><span class="math inline">\(e^{-\lambda}\lambda\sum\limits_{y = 1}^{\infty}\frac{\lambda^{y}}{y!} = e^{-\lambda}e^\lambda\lambda = \lambda\)</span> <label for="tufte-mn-8" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-8" class="margin-toggle"><span class="marginnote"><span style="display: block;"><span class="math inline"><span class="math inline">\(\blacksquare\)</span></span></span></span></p>
+</div>
+<div id="b-5" class="section level2">
+<h2>b</h2>
+<hr />
+<p>For this problem, we are given a hint of <span class="math inline">\(E[X(X-1)]\)</span>. Let’s evaluate this:</p>
+<p><span class="math inline">\(E[X(X-1)] = \sum\limits_{x=0}^\infty \frac{x(x-1)e^{-\lambda}\lambda^x}{x!}\)</span></p>
+<p>We initially note that the first two terms will be 0, so we can shift our sum to start at 2:</p>
+<p><span class="math inline">\(\sum\limits_{x=2}^\infty \frac{x(x-1)e^{-\lambda}\lambda^x}{x!}\)</span></p>
+<p>We also note again that <span class="math inline">\(e^{-\lambda}\)</span> is constant and can be factored out:</p>
+<p><span class="math inline">\(e^{-\lambda}\sum\limits_{x=2}^\infty \frac{x(x-1)\lambda^x}{x!}\)</span></p>
+<p>Further still, we note that the first two terms of <span class="math inline">\(x!\)</span> can be cancelled out with the terms in the numerator:</p>
+<p><span class="math inline">\(e^{-\lambda}\sum\limits_{x=2}^\infty \frac{\lambda^x}{(x-2)!}\)</span></p>
+<p>If we examine the first few terms, we will notice that each term has at least <span class="math inline">\(\lambda^2\)</span>. We can factor this out as well:</p>
+<p><span class="math inline">\(e^{-\lambda}\lambda^2\sum\limits_{x=2}^\infty \frac{\lambda^{x-2}}{(x-2)!}\)</span></p>
+<p>A change of variable (where <span class="math inline">\(y = x-2\)</span>) lets us see that this is a familiar sum:</p>
+<p><span class="math inline">\(e^{-\lambda}\lambda^2\sum\limits_{y=0}^\infty \frac{\lambda^{y}}{(y)!} = e^{-\lambda}e^\lambda\lambda^2 = \lambda^2\)</span></p>
+<p>We know this to be <span class="math inline">\(E[X(X-1)]\)</span>. Manipulating this expression, we see</p>
+<p><span class="math inline">\(E[X(X-1)] = E[X^2-X]\)</span></p>
+<p>Since we know expectation values can be separated, this is equivalent to</p>
+<p><span class="math inline">\(E[X^2] - E[X]\)</span></p>
+<p>and we know <span class="math inline">\(E[X] = \lambda\)</span> So we can solve for <span class="math inline">\(E[X^2]\)</span>:</p>
+<p><span class="math inline">\(\lambda^2 = E[X^2] - \lambda \implies E[X^2] = \lambda^2 + \lambda\)</span></p>
+<p>So,</p>
+<p><span class="math inline">\(Var(X) =\lambda^2 + \lambda - E[X]^2 = \lambda^2 + \lambda - \lambda^2 = \lambda\)</span> <label for="tufte-mn-9" class="margin-toggle">⊕</label><input type="checkbox" id="tufte-mn-9" class="margin-toggle"><span class="marginnote"><span style="display: block;"><span class="math inline"><span class="math inline">\(\blacksquare\)</span></span></span></span></p>
+</div>
+</div>
+<div id="problem-8" class="section level1">
+<h1>Problem 8</h1>
+<hr />
+<div id="a-6" class="section level2">
+<h2>a</h2>
+<hr />
+<p>We can write the uniform distribution as</p>
+<p><span class="math inline">\(f(x) = 1\)</span></p>
+<p>So the expected value (for <span class="math inline">\(0 &lt; x &lt; 1\)</span>) can be calculated as</p>
+<p><span class="math inline">\(E[X] = \int\limits^1_0 xdx = \frac{x^2}{2}\Big|^1_0 = \frac{1}{2}\)</span></p>
+<p>Converting to a percentage, the expected percentage of a randomly selected person’s body that is covered in freckles is <span class="math inline">\(50\%\)</span></p>
+</div>
+<div id="b-6" class="section level2">
+<h2>b</h2>
+<hr />
+<p>The variance is given by</p>
+<p><span class="math inline">\(Var(X) = E[X^2] - E[X]^2\)</span></p>
+<p>Beginning with the first portion,</p>
+<p><span class="math inline">\(E[X^2] = \int\limits^1_0 x^2dx = \frac{x^3}{3}\Big|^1_0 = \frac{1}{3}\)</span></p>
+<p>So,</p>
+<p><span class="math inline">\(Var(X) = \frac{1}{3} - \frac{1}{4} = \frac{1}{12}\)</span></p>
+</div>
+</div>
+<div id="problem-9" class="section level1">
+<h1>Problem 9</h1>
+<hr />
+<div id="a-7" class="section level2">
+<h2>a</h2>
+<hr />
+<p>If we consider <span class="math inline">\(X\)</span> to be the number of songs listened to AFTER the repeated song was listened to, then we know that <span class="math inline">\(P(X = 1) = 0\)</span> - listening to just one song cannot be a repeat of anything.</p>
+<p>If we manage to listen to all the songs without a repeat, the next song we listen to MUST be a repeat: there is no song in the list that exists that we have not yet heard <span class="math inline">\(P(X = 1001) = 1\)</span>. Any additional songs are not considered. So, <span class="math inline">\(2 \le X \le 1001\)</span>.</p>
+<p>Let’s think about what the probability of listening to 3 songs (and hearing a repeat on the third song) is.</p>
+<p>The probability of the first song not being a repeat is quite good, so the probability of this event happening is 1. The probability of the seoncd song not being a repeat is also quite good, but one of the songs is forbidden. The probability of having picked a song not yet played before is therefore <span class="math inline">\(999/1000\)</span>. The third song is where we picked a song we have already heard before. The probability of that happening is quite slim - <span class="math inline">\(2/1000\)</span>. Altogether, <span class="math inline">\(P(X = 3) = \frac{1000}{1000}\frac{999}{1000}\frac{2}{1000}\)</span></p>
+<p>This is all well and good, but suppose we want to generalize this equation for <span class="math inline">\(x\)</span>. Say we listened to <span class="math inline">\(x\)</span> songs, where the <span class="math inline">\(x\)</span>th song was the duplicate. To generalize this, we can write</p>
+<p><span class="math inline">\(P(X=x) = \frac{1000}{1000}\frac{999}{1000}...\frac{1000-(x+2)}{1000}\frac{x-1}{1000}\)</span></p>
+<p>The denominator can be simplified to <span class="math inline">\(1000^x\)</span>, and the top reeks of a factorial…to me it looks very much like the front end of a factorial. And the front end of a factorial is simply a factorial with the back end divided out. So the numerator is something like</p>
+<p><span class="math inline">\(1000*999*998*...*1000-(x+2) = 1000!/(1000-(x+1))!\)</span></p>
+<p>So altogether it becomes</p>
+<p><span class="math inline">\(P(X = x) = \frac{1000!(x-1)}{1000^x(1000-(x+1))!}\)</span></p>
+</div>
+<div id="b-7" class="section level2">
+<h2>b</h2>
+<hr />
+</div>
+</div>
 
 
 
