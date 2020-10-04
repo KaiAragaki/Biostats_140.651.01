@@ -1,0 +1,1146 @@
+\documentclass[]{tufte-handout}
+
+% ams
+\usepackage{amssymb,amsmath}
+
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \makeatletter
+  \@ifpackageloaded{fontspec}{}{\usepackage{fontspec}}
+  \makeatother
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \makeatletter
+  \@ifpackageloaded{soul}{
+     \renewcommand\allcapsspacing[1]{{\addfontfeature{LetterSpace=15}#1}}
+     \renewcommand\smallcapsspacing[1]{{\addfontfeature{LetterSpace=10}#1}}
+   }{}
+  \makeatother
+
+\fi
+
+% graphix
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+
+% booktabs
+\usepackage{booktabs}
+
+% url
+\usepackage{url}
+
+% hyperref
+\usepackage{hyperref}
+
+% units.
+\usepackage{units}
+
+
+\setcounter{secnumdepth}{-1}
+
+% citations
+
+% pandoc syntax highlighting
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{#1}}}}
+
+% longtable
+\usepackage{longtable,booktabs}
+
+% multiplecol
+\usepackage{multicol}
+
+% strikeout
+\usepackage[normalem]{ulem}
+
+% morefloats
+\usepackage{morefloats}
+
+
+% tightlist macro required by pandoc >= 1.14
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% title / author / date
+\title{BST 140.651 Problem Set 2}
+\author{Kai Aragaki}
+\date{9/15/2020}
+
+
+\begin{document}
+
+\maketitle
+
+
+
+
+\hypertarget{problem-1}{%
+\section{Problem 1}\label{problem-1}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\(Var(X) = E[X^2]-E[X]^2\)
+
+Where \(Var(X) = E[(X-\mu)^2]\), so
+
+\(E[(X-\mu)^2] = E[X^2]-E[X]^2\)
+
+\(E[X^2-2X\mu + \mu^2] = E[X^2]-E[X]^2\)
+
+\(E[X^2] + E[-2X\mu] + E[\mu^2] = E[X^2]-E[X]^2\)
+
+Since \(\mu\) is a constant, and constants can be pulled out of the
+expected value function,
+
+\(E[X^2] -2\mu E[X] + \mu^2 E[1] = E[X^2] -E[X]^2\)
+
+Simplifying, and with the knowledge that \(E[X] = \mu\):
+
+\(-2\mu^2 + \mu^2 = -\mu^2\)
+
+From which we find
+
+\(-2\mu^2 = -2\mu^2\)
+
+Which we know to be true.
+
+\hypertarget{problem-2}{%
+\section{Problem 2}\label{problem-2}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{a}{%
+\subsection{a}\label{a}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\(g\) is a valid density if all values are positive and if the integral
+across all values is 1.
+
+We know all values are positive because it is the sum of three densities
+(which themselves must always be positive), each of which is multiplied
+by a scalar that is also positive.
+
+To show that the integral across all values is equal to 1,
+
+\(\int\limits_{-\infty}^{\infty}g(x) = 1\)
+
+Since we know
+
+\(g(x) = \pi_1f_1(x) + \pi_2f_2(x) + \pi_3f_3(x)\)
+
+then
+
+\(\int\limits_{-\infty}^{\infty}g(x) = \int\limits_{-\infty}^{\infty}\Big(\pi_1f_1(x) + \pi_2f_2(x) + \pi_3f_3(x)\Big)\)
+
+which is equivalent to
+
+\(\int\limits_{-\infty}^{\infty}g(x) = \pi_1\int\limits_{-\infty}^{\infty}f_1(x) + \pi_2\int\limits_{-\infty}^{\infty}f_2(x)+ \pi_3\int\limits_{-\infty}^{\infty}f_3(x)\)
+
+and since each function \(f_i\) is a valid density their integrals must
+equal 1, giving
+
+\(\int\limits_{-\infty}^{\infty}g(x) = \pi_1 + \pi_2 + \pi_3\)
+
+Since we are additionally told \(\Sigma^3_{i=1}\pi_i = 1\)
+
+\(\int\limits_{-\infty}^{\infty}g(x) = 1\)
+
+\begin{marginfigure}
+\(\blacksquare\)
+\end{marginfigure}
+
+\hypertarget{b}{%
+\subsection{b}\label{b}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+We know that mean (or expected value) for a continous distribution is
+given by
+
+\(\int\limits_{-\infty}^{\infty}xg(x)\)
+
+Which is
+
+\(\int\limits_{-\infty}^{\infty}x\Big(\pi_1f_1(x)+\pi_2f_2(x)+\pi_3f_3(x)\Big)\)
+
+which can be expanded to
+
+\(\pi_1\int\limits_{-\infty}^{\infty}xf_1(x) + \pi_2\int\limits_{-\infty}^{\infty}xf_2(x)+\pi_3\int\limits_{-\infty}^{\infty}xf_3(x)\)
+
+And since we know the definition of the expected value, we can rewrite
+this as
+
+\(E[X] = \pi_1\mu_1 + \pi_2\mu_2+\pi_3\mu_3\)
+
+\hypertarget{c}{%
+\subsection{c}\label{c}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+We have previously shown that the definition of
+
+\(Var(x) = E[X^2] - E[X]^2\)
+
+We can represent the variance of \(g\) in these terms:
+
+\(\int\limits_{-\infty}^{\infty}x^2g(x) - [\int\limits_{-\infty}^{\infty}xg(x)]^2\)
+
+The right term we have previously found - it's simply the square of the
+expectation value we found in the previous problem. The left terms can
+be found by first writing \(g\) in terms of \(f\)
+
+\(\int\limits_{-\infty}^{\infty}x^2g(x) = \int\limits_{-\infty}^{\infty}x^2\Big(\pi_1f_1(x)+\pi_2f_2(x)+\pi_3f_3(x)\Big)\)
+
+or distributed:
+
+\(\int\limits_{-\infty}^{\infty}x^2g(x) = \pi_1\int\limits_{-\infty}^{\infty}x^2f_1(x) + \pi_2\int\limits_{-\infty}^{\infty}x^2f_2(x) + \pi_3\int\limits_{-\infty}^{\infty}x^2f_3(x)\)
+
+and then noticing that the variance equation can be written as follows:
+
+\(\sigma^2 = E[X^2] + \mu^2\)
+
+And solving for \(E[X^2]\):
+
+\(E[X^2] = \mu^2 + \sigma^2\)
+
+which is equivalent to
+
+\(\int\limits_{-\infty}^{\infty}x^2f_i(x) = \mu^2_i + \sigma^2_i\)
+
+Substituting in, we get
+
+\(\int\limits_{-\infty}^{\infty}x^2g(x) = \pi_1(\mu^2_1 + \sigma^2_1) +\pi_2(\mu^2_2 + \sigma^2_2) +\pi_3(\mu^2_3 + \sigma^2_3)\)
+
+Combining this left hand term with the right hand term, we get
+
+\(Var(x) = \pi_1(\mu^2_1 + \sigma^2_1) +\pi_2(\mu^2_2 + \sigma^2_2) +\pi_3(\mu^2_3 + \sigma^2_3) -(\pi_1\mu_1 + \pi_2\mu_2+\pi_3\mu_3)^2\)
+
+\hypertarget{problem-3}{%
+\section{Problem 3}\label{problem-3}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{a-1}{%
+\subsection{a}\label{a-1}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+The mean of a continuous distribution is
+
+\(\int\limits_{lower}^{upper}xf(x)\)
+
+In this case the lower and upper bounds are given as 0 and 1
+respectively.
+
+Therefore the mean is given by
+
+\(\int\limits_{0}^{1}(k+1)x^{k+1}\)
+
+\(\int\limits_{0}^{1}kx^{k+1} + \int\limits_{0}^{1}x^{k+1}\)
+
+\(\frac{kx^{k+2}}{k+2}\Bigg|^1_0 + \frac{x^{k+2}}{k+2}\Bigg|^1_0\)
+
+\(\frac{k}{k+2} + \frac{1}{k+2}\)
+
+\(\frac{k+1}{k+2}\)
+
+\hypertarget{b-1}{%
+\subsection{b}\label{b-1}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+The variance of this distribution is
+
+\(Var(x) = E[X^2] - E[X]^2\)
+
+We know \(E[X]=\mu\), which is what we found in part \(a\), so squaring
+it is trivial. Additionally,
+
+\(E[X^2] = \int\limits_{0}^{1}x^2\big((k+1)x^k\big) = \int\limits_{0}^{1}(k+1)x^{k+2}\)
+
+And by distributing,
+
+\(\int\limits_{0}^{1}kx^{k+2} + \int\limits_{0}^{1}x^{k+2}\)
+
+We can see by analogy to the first problem that this will integrate and
+simplify to
+
+\(\frac{k+1}{k+3}\)
+
+\hypertarget{problem-4}{%
+\section{Problem 4}\label{problem-4}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{a-2}{%
+\subsection{a}\label{a-2}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+To calculate the mean, we know that the mean is, for the limits of this
+given function
+
+\(E[X] = \int\limits^\infty_{0}xf(x) = \frac{1}{3.3}\int\limits^\infty_{0}xe^{\frac{-x}{3.3}}\)
+
+We can integrate by parts using - that is, we know the following to be
+true:
+
+\(\int udv = uv - \int vdu\)
+
+so if we set \(u = x\), \(du = dx\), \(v = -3.3e^{\frac{-x}{3.3}}\), and
+\(dv = e^{\frac{-x}{3.3}}dx\),
+
+\(\int xe^{\frac{-x}{3.3}}= 3.3xe^{\frac{-x}{3.3}} + 3.3\int e^{\frac{-x}{3.3}}dx = 3.3xe^{\frac{-x}{3.3}} - 3.3^2e^{\frac{-x}{3.3}}\)
+
+Substituting this integral back into the original, we obtain
+
+\(xe^{\frac{-x}{3.3}} - 3.3e^{\frac{-x}{3.3}}\)
+
+evaluating at its limits of \(0\) and \(\infty\), and with the knowledge
+that \(e^{-x}\) approaches 0 much faster than \(x\) approaches infinity,
+
+\(xe^{\frac{-x}{3.3}} - 3.3e^{\frac{-x}{3.3}}\Big|^\infty_0 = [0 + 0] - [0 - 3.3] = 3.3\)
+
+\begin{marginfigure}
+\(\blacksquare\)
+\end{marginfigure}
+
+To calculate the variance, we solve the following:
+
+\(Var(X) = \int\limits^\infty_{0}x^2f(x) - E[X]^2\)
+
+But since we know the value of \(E[X]\) (and squaring it is trivial) we
+focus our efforts on the left hand side of the equation:
+
+\(\int\limits^\infty_{0}x^2f(x) = \frac{1}{3.3}\int\limits^\infty_{0}x^2e^{\frac{-x}{3.3}}\)
+
+As before, we begin to integrate by parts, with \(u = x^2\),
+\(du = 2xdx\), \(v = -3.3e^{\frac{-x}{3.3}}\), and
+\(dv = e^{\frac{-x}{3.3}}\):
+
+\(\frac{1}{3.3}[-3.3x^2e^{\frac{-x}{3.3}}+6.6\int e^{\frac{-x}{3.3}}xdx]\)
+
+We integrate by parts again, this time where \(u = x\), \(du = dx\),
+\(v = -3.3e^{\frac{-x}{3.3}}\), and \(dv = e^{\frac{-x}{3.3}}dx\),
+
+\(\frac{1}{3.3}\Big[-3.3x^2e^{\frac{-x}{3.3}}+6.6[-3.3xe^{\frac{-x}{3.3}} + 3.3 \int e^{\frac{-x}{3.3}}dx]\Big]\)
+
+Which is equivalent to
+
+\(\frac{1}{3.3}\Big[-3.3x^2e^{\frac{-x}{3.3}}+6.6[-3.3xe^{\frac{-x}{3.3}} - 3.3^2 e^{\frac{-x}{3.3}}]\Big]\)
+
+As before, evaluating at the limits \(0\) to \(\infty\) and substitute
+back in \(E[X]^2\)
+
+\(Var(X) = 2(3.3)^2-3.3^2 = 3.3^2 = 10.89\)
+
+\begin{marginfigure}
+\(\blacksquare\)
+\end{marginfigure}
+
+\hypertarget{b-2}{%
+\subsection{b}\label{b-2}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+If we substitute \(3.3\) for \(\beta\) in our previous solutions, we
+find
+
+\(E[X] = xe^{\frac{-x}{\beta}} - \beta e^{\frac{-x}{\beta}}\Big|^\infty_0 = [0 + 0] - [0 - \beta] = \beta\)
+
+and
+
+\(Var(X) = \frac{1}{\beta}\Big[-\beta x^2e^{\frac{-x}{\beta}}+2\beta[-\beta xe^{\frac{-x}{\beta}} - \beta^2 e^{\frac{-x}{\beta}}]\Big] - \beta^2 = \beta^2\)
+
+\hypertarget{c-1}{%
+\subsection{c}\label{c-1}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tib <-}\StringTok{ }\KeywordTok{expand_grid}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DataTypeTok{by =} \FloatTok{0.01}\NormalTok{), }\DataTypeTok{b =} \KeywordTok{c}\NormalTok{(}\FloatTok{0.1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{10}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{y =}\NormalTok{ (}\DecValTok{1}\OperatorTok{/}\NormalTok{b) }\OperatorTok{*}\StringTok{ }
+\StringTok{    }\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\NormalTok{x}\OperatorTok{/}\NormalTok{b))}
+
+\KeywordTok{ggplot}\NormalTok{(tib, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ x, }\DataTypeTok{y =}\NormalTok{ y, }\DataTypeTok{color =} \KeywordTok{as.factor}\NormalTok{(b))) }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_color_viridis_d}\NormalTok{(}\DataTypeTok{end =} \FloatTok{0.8}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{    }\KeywordTok{geom_line}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{/Users/kaiaragaki/Documents/github-repos/Biostats_140.651.01/output/hw_2_files/figure-latex/unnamed-chunk-4-1}
+
+\hypertarget{problem-5}{%
+\section{Problem 5}\label{problem-5}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{a-3}{%
+\subsection{a}\label{a-3}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+We know the mean to be
+
+\(\int\limits_0^\infty xf(x)dx = \int\limits_0^\infty \frac{1}{\beta^\alpha\Gamma(\alpha)}x^\alpha e^{\frac{-x}{\beta}}dx\)
+
+We begin by substituting, where \(u = \frac{x}{\beta}\) and
+\(du = \frac{dx}{\beta}\), which implies \(x = \beta u\) and
+\(dx = \beta du\):
+
+\(\int\limits_0^\infty \frac{1}{\beta^\alpha\Gamma(\alpha)}(\beta u)^\alpha e^{-u}\beta du = \int\limits_0^\infty \frac{1}{\Gamma(\alpha)}u^\alpha e^{-u}\beta du = \frac{\Gamma(\alpha+1)}{\Gamma(\alpha)}\beta\)
+
+Since we know that \(\Gamma(\alpha) = (\alpha-1)!\), then
+
+\(\frac{\Gamma(\alpha+1)}{\Gamma(\alpha)}\beta = \alpha\beta\)
+
+\begin{marginfigure}
+\(\blacksquare\)
+\end{marginfigure}
+
+For the variance, we know
+
+\(Var(X) = E[X^2] - E[X]^2\)
+
+We begin to solve for the first portion:
+
+\(E[X^2] = \int \limits _0^\infty x^2f(x) = \int\limits_0^\infty \frac{1}{\beta^\alpha\Gamma(\alpha)}x^{\alpha+1} e^{\frac{-x}{\beta}}dx\)
+
+Using the same substitution as above, we can write it as
+
+\(\int\limits_0^\infty \frac{1}{\beta^\alpha\Gamma(\alpha)}(\beta u)^{\alpha+1} e^u \beta du = \int\limits_0^\infty \frac{1}{\Gamma(\alpha)}\beta^2u^{\alpha+1} e^udu = \frac{\Gamma(\alpha+2)}{\Gamma(\alpha)}\beta^2 = (\alpha + 1)\alpha\beta^2 = \alpha^2\beta^2 + \alpha\beta^2\)
+
+Solving for second portion is as simple as squaring the value we found
+for the mean, so in total,
+
+\(Var(X) = E[X^2] - E[X]^2 = \alpha^2\beta^2 + \alpha\beta^2 - \alpha^2\beta^2 = \alpha\beta^2\)
+
+\begin{marginfigure}
+\(\blacksquare\)
+\end{marginfigure}
+
+\hypertarget{b-3}{%
+\subsection{b}\label{b-3}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+We can simply substitute in these values for \(\alpha\) and \(\beta\):
+
+\(\mu = \alpha\beta = \frac{2p}{2} = p\)
+
+\(\sigma^2 = \alpha\beta^2 = \frac{4p}{2} = 2p\)
+
+\hypertarget{problem-6}{%
+\section{Problem 6}\label{problem-6}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{a-4}{%
+\subsection{a}\label{a-4}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\(E[X] = \int \limits_0^1xf(x) = \int \limits_0^1 \frac{x^\alpha(1-x)^{\beta-1}}{B(\alpha, \beta)}\)
+
+since we know
+
+\(B(\alpha, \beta) = \int\limits^1_0 x^{\alpha-1}(1-x)^{\beta-1}dx = \frac{\Gamma(\alpha)\Gamma(\beta)}{\Gamma(\alpha + \beta)}\)
+
+then
+
+\(B(\alpha + 1, \beta) = \int\limits^1_0 x^{\alpha}(1-x)^{\beta-1}dx = \frac{\Gamma(\alpha + 1)\Gamma(\beta)}{\Gamma(\alpha + 1 + \beta)}\)
+
+so
+
+\(\int \limits_0^1 \frac{x^\alpha(1-x)^{\beta-1}}{B(\alpha, \beta)} = \frac{\Gamma(\alpha + 1)\Gamma(\beta)}{\Gamma(\alpha + 1 + \beta)} \times \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} = \frac{\alpha\Gamma(\alpha)\Gamma(\beta)}{(\alpha + \beta)\Gamma(\alpha + \beta)} \times \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} = \frac{\alpha}{\alpha + \beta}\)
+
+\begin{marginfigure}
+\(\blacksquare\)
+\end{marginfigure}
+
+\hypertarget{b-4}{%
+\subsection{b}\label{b-4}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+For the variance, like above we solve in portions, starting with the
+first portion:
+
+\(E[X^2] = \int \limits_0^1x^2f(x) = \int \limits_0^1 \frac{x^{\alpha+1}(1-x)^{\beta-1}}{B(\alpha, \beta)} = \frac{\Gamma(\alpha + 2)\Gamma(\beta)}{\Gamma(\alpha + 2 + \beta)} \times \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} = \frac{(\alpha + 1)(\alpha)\Gamma(\alpha)\Gamma(\beta)}{(\alpha + \beta + 1)(\alpha+\beta)\Gamma(\alpha + \beta)} \times \frac{\Gamma(\alpha + \beta)}{\Gamma(\alpha)\Gamma(\beta)} = \frac{\alpha(\alpha+1)}{(\alpha + \beta + 1)(\alpha + \beta)}\)
+
+The second portion is simply the mean squared, so the variance becomes
+
+\(Var(X) = \frac{\alpha(\alpha+1)}{(\alpha + \beta + 1)(\alpha + \beta)} - \Big(\frac{\alpha}{\alpha + \beta}\Big)^2 = \frac{\alpha(\alpha+1)(\alpha + \beta) - (\alpha + \beta + 1)\alpha^2}{(\alpha + \beta + 1)(\alpha + \beta)^2} = \frac{\alpha\beta}{(\alpha + \beta + 1)(\alpha + \beta)^2}\)
+
+\begin{marginfigure}
+\(\blacksquare\)
+\end{marginfigure}
+
+\hypertarget{problem-7}{%
+\section{Problem 7}\label{problem-7}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{a-5}{%
+\subsection{a}\label{a-5}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+The mean for discrete functions can be written as
+
+\(E[X] = \sum\limits_{x = 0}^{\infty}xp(x) = \sum\limits_{x = 0}^{\infty}\frac{xe^{-\lambda}\lambda^x}{x!}\)
+
+We know \(e^{-\lambda}\) is constant, so we can pull it out of the sum:
+
+\(e^{-\lambda}\sum\limits_{x = 0}^{\infty}\frac{x\lambda^x}{x!}\)
+
+We further note that the first term is 0 - so we can safely start the
+sum at \(x = 1\):
+
+\(e^{-\lambda}\sum\limits_{x = 1}^{\infty}\frac{x\lambda^x}{x!}\)
+
+We now note two things: Each term in our summation has at least one
+\(\lambda\), which can be factored out. Additionally,
+\(\frac{x}{x!} = \frac{1}{(x-1)!}\), so the sum can be rewritten as
+
+\(e^{-\lambda}\lambda\sum\limits_{x = 1}^{\infty}\frac{\lambda^{x-1}}{(x-1)!}\)
+
+By performing a change of variable, where \(y = x - 1\), we can more
+easily see a familiar infinite sum:
+
+\(e^{-\lambda}\lambda\sum\limits_{y = 1}^{\infty}\frac{\lambda^{y}}{y!} = e^{-\lambda}e^\lambda\lambda = \lambda\)
+
+\begin{marginfigure}
+\(\blacksquare\)
+\end{marginfigure}
+
+\hypertarget{b-5}{%
+\subsection{b}\label{b-5}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+For this problem, we are given a hint of \(E[X(X-1)]\). Let's evaluate
+this:
+
+\(E[X(X-1)] = \sum\limits_{x=0}^\infty \frac{x(x-1)e^{-\lambda}\lambda^x}{x!}\)
+
+We initially note that the first two terms will be 0, so we can shift
+our sum to start at 2:
+
+\(\sum\limits_{x=2}^\infty \frac{x(x-1)e^{-\lambda}\lambda^x}{x!}\)
+
+We also note again that \(e^{-\lambda}\) is constant and can be factored
+out:
+
+\(e^{-\lambda}\sum\limits_{x=2}^\infty \frac{x(x-1)\lambda^x}{x!}\)
+
+Further still, we note that the first two terms of \(x!\) can be
+cancelled out with the terms in the numerator:
+
+\(e^{-\lambda}\sum\limits_{x=2}^\infty \frac{\lambda^x}{(x-2)!}\)
+
+If we examine the first few terms, we will notice that each term has at
+least \(\lambda^2\). We can factor this out as well:
+
+\(e^{-\lambda}\lambda^2\sum\limits_{x=2}^\infty \frac{\lambda^{x-2}}{(x-2)!}\)
+
+A change of variable (where \(y = x-2\)) lets us see that this is a
+familiar sum:
+
+\(e^{-\lambda}\lambda^2\sum\limits_{y=0}^\infty \frac{\lambda^{y}}{(y)!} = e^{-\lambda}e^\lambda\lambda^2 = \lambda^2\)
+
+We know this to be \(E[X(X-1)]\). Manipulating this expression, we see
+
+\(E[X(X-1)] = E[X^2-X]\)
+
+Since we know expectation values can be separated, this is equivalent to
+
+\(E[X^2] - E[X]\)
+
+and we know \(E[X] = \lambda\) So we can solve for \(E[X^2]\):
+
+\(\lambda^2 = E[X^2] - \lambda \implies E[X^2] = \lambda^2 + \lambda\)
+
+So,
+
+\(Var(X) =\lambda^2 + \lambda - E[X]^2 = \lambda^2 + \lambda - \lambda^2 = \lambda\)
+
+\begin{marginfigure}
+\(\blacksquare\)
+\end{marginfigure}
+
+\hypertarget{problem-8}{%
+\section{Problem 8}\label{problem-8}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{a-6}{%
+\subsection{a}\label{a-6}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+We can write the uniform distribution as
+
+\(f(x) = 1\)
+
+So the expected value (for \(0 < x < 1\)) can be calculated as
+
+\(E[X] = \int\limits^1_0 xdx = \frac{x^2}{2}\Big|^1_0 = \frac{1}{2}\)
+
+Converting to a percentage, the expected percentage of a randomly
+selected person's body that is covered in freckles is \(50\%\)
+
+\hypertarget{b-6}{%
+\subsection{b}\label{b-6}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+The variance is given by
+
+\(Var(X) = E[X^2] - E[X]^2\)
+
+Beginning with the first portion,
+
+\(E[X^2] = \int\limits^1_0 x^2dx = \frac{x^3}{3}\Big|^1_0 = \frac{1}{3}\)
+
+So,
+
+\(Var(X) = \frac{1}{3} - \frac{1}{4} = \frac{1}{12}\)
+
+\hypertarget{problem-9}{%
+\section{Problem 9}\label{problem-9}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{a-7}{%
+\subsection{a}\label{a-7}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+If we consider \(X\) to be the number of songs listened to AFTER the
+repeated song was listened to, then we know that \(P(X = 1) = 0\) -
+listening to just one song cannot be a repeat of anything.
+
+If we manage to listen to all the songs without a repeat, the next song
+we listen to MUST be a repeat: there is no song in the list that exists
+that we have not yet heard \(P(X = 1001) = 1\). Any additional songs are
+not considered. So, \(2 \le X \le 1001\).
+
+Let's think about what the probability of listening to 3 songs (and
+hearing a repeat on the third song) is.
+
+The probability of the first song not being a repeat is quite good, so
+the probability of this event happening is 1. The probability of the
+seoncd song not being a repeat is also quite good, but one of the songs
+is forbidden. The probability of having picked a song not yet played
+before is therefore \(999/1000\). The third song is where we picked a
+song we have already heard before. The probability of that happening is
+quite slim - \(2/1000\). Altogether,
+\(P(X = 3) = \frac{1000}{1000}\frac{999}{1000}\frac{2}{1000}\)
+
+This is all well and good, but suppose we want to generalize this
+equation for \(x\). Say we listened to \(x\) songs, where the \(x\)th
+song was the duplicate. To generalize this, we can write
+
+\(P(X=x) = \frac{1000}{1000}\frac{999}{1000}...\frac{1000-(x+2)}{1000}\frac{x-1}{1000}\)
+
+The denominator can be simplified to \(1000^x\), and the top reeks of a
+factorial\ldots to me it looks very much like the front end of a
+factorial. And the front end of a factorial is simply a factorial with
+the back end divided out. So the numerator is something like
+
+\(1000*999*998*...*1000-(x+2) = 1000!/(1000-(x+1))!\)
+
+So altogether it becomes
+
+\(P(X = x) = \frac{1000!(x-1)}{1000^x(1000-(x+1))!}\)
+
+\hypertarget{b-7}{%
+\subsection{b}\label{b-7}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+It is much more computationally feasible the expected value if we define
+the probability in a recursive form.
+
+We can think of the question we want to answer as "what is the
+probability of getting a repeat on this particular song number as well
+as not getting a repeat on the previous songs? Mathematically:
+
+\(P(X = k \cap X > k-1)\)
+
+We know that
+
+\(P(A|B) = \frac{P(A\cap B)}{P(B)}\)
+
+by definition, so
+
+\(P(A\cap B) = P(A|B)P(B)\)
+
+so
+
+\(P(X = k \cap X > k-1) = P(X = k|X > k-1)P(X > k-1)\)
+
+We know that
+
+\(P(X = k|X > k-1)\)
+
+is just
+
+\(\frac{k-1}{1000}\)
+
+and
+
+\(P(X > k-1)\)
+
+is
+
+\(1-(P(X=k-1) + P(X = k-2) + ... + P(X = 2))\)
+
+So in total,
+
+\(\frac{k-1}{1000}(1-(P(X=k-1) + P(X = k-2) + ... + P(X = 2)))\)
+
+Thus we can define each probability incrementally instead of requiring
+calculating \(1000!\), which can in turn be implemented into a loop.
+These values can then be solved computationally to receive approximate
+values rather than exact:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Code shamefully stolen from the lab markdown}
+\NormalTok{nsongs <-}\StringTok{ }\DecValTok{1000}
+
+\NormalTok{xk <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\NormalTok{(nsongs }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+
+\NormalTok{pk <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{, nsongs }\OperatorTok{+}\StringTok{ }\DecValTok{1}\NormalTok{)}
+
+\ControlFlowTok{for}\NormalTok{ (k }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\KeywordTok{length}\NormalTok{(xk)) \{}
+\NormalTok{    pk[k] <-}\StringTok{ }\NormalTok{(k }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)}\OperatorTok{/}\NormalTok{nsongs }\OperatorTok{*}\StringTok{ }\NormalTok{(}\DecValTok{1} \OperatorTok{-}\StringTok{ }\KeywordTok{sum}\NormalTok{(pk[}\DecValTok{1}\OperatorTok{:}\NormalTok{(k }\OperatorTok{-}\StringTok{ }\DecValTok{1}\NormalTok{)]))}
+\NormalTok{\}}
+
+\NormalTok{EX <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(pk }\OperatorTok{*}\StringTok{ }\NormalTok{xk)}
+\NormalTok{VX <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(pk }\OperatorTok{*}\StringTok{ }\NormalTok{xk}\OperatorTok{^}\DecValTok{2}\NormalTok{) }\OperatorTok{-}\StringTok{ }\NormalTok{EX}\OperatorTok{^}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{problem-11}{%
+\section{Problem 11}\label{problem-11}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+This is essentially asking for a quantile of a geometric distribution.
+\texttt{qgeom} will give us the number of `failures' (not contracting
+HIV) before a `success' (contracting HIV) (Obviously these are just how
+they are coded - no one would consider contracting HIV to be an actual
+success).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{qgeom}\NormalTok{(}\FloatTok{0.1}\NormalTok{, }\DecValTok{1}\OperatorTok{/}\DecValTok{500}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 52
+\end{verbatim}
+
+We will have 52 `failures' before we have a 0.1 cumulative probability
+of `success' - that is, 53 acts of intercourse are required. Some
+assumptions of the geometric distribution: the events are independent -
+that is, one event's probabilities does not affect the probability of
+the other - and that there is no gradient of success and failure ie it
+is a success/failure binary.
+
+\hypertarget{problem-16}{%
+\section{Problem 16}\label{problem-16}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{a-8}{%
+\subsection{a}\label{a-8}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+For \(M = 0, P(X = 0) = (408)/7745 \approx 0.053\) For
+\(M = 1, P(X = 1) = (429 + 451 + 456 + 441)/7745 \approx 0.229\) For
+\(M = 2, P(X = 2) = (497+486+473+526+498+490)/7745 \approx 0.384\) For
+\(M = 3, P(X = 3) = (549+514+523+467)/7745 \approx 0.265\) For
+\(M = 4, P(X = 4) = (537)/7745 \approx 0.069\)
+
+\hypertarget{b-8}{%
+\subsection{b}\label{b-8}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+This is the sum of each probability multiplied by X, so
+
+\(E[X] = 0*0.053 + 1*0.229 + 2*0.384 + 3*0.265 + 4*0.069 = 2.068\)
+
+\hypertarget{c-2}{%
+\subsection{c}\label{c-2}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+The variance is given by
+
+\(Var(X) = E[X^2] - E[X]^2\)
+
+\(E[X^2] = 0^2*0.053 + 1^2*0.229 + 2^2*0.384 + 3^2*0.265 + 4^2*0.069 = 5.254\)
+\(E[X]^2 = 2.068^2 = 4.277\)
+
+\(Var(X) = 5.254 - 4.277 = 0.977\)
+
+\hypertarget{d}{%
+\subsection{d}\label{d}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+The conversion from number to proportion is as simple as converting
+\(X = 0, 1, 2, 3, 4\) to \(X = 0, 0.25, 0.5, 0.75, 1\)
+
+So
+
+\(E[X] = 0*0.053 + 0.25*0.229 + 0.5*0.384 + 0.75*0.265 + 1*0.069 = 0.517\)
+
+Which we note is simply the previous mean divided by 4
+
+and
+
+\(Var(X) = E[X^2] - E[X]^2\)
+
+\(E[X^2] = 0^2*0.053 + 0.25^2*0.229 + 0.5^2*0.384 + 0.75^2*0.265 + 1^2*0.069 = .328375\)
+\(E[X]^2 = 0.517^2 = 0.267289\)
+
+\(Var(X) = .328375 - 0.267289 = 0.061086\)
+
+Which we note is simply the previous variance divided by 16
+
+\hypertarget{problem-17}{%
+\section{Problem 17}\label{problem-17}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{a-9}{%
+\subsection{a}\label{a-9}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\(E[X] = \int \limits_1^\infty x\frac{3}{x^4} = 3\int \limits_1^\infty \frac{1}{x^3} = -\frac{3}{2}x^{-2}\Big|^\infty_1 = \frac{3}{2}\)
+
+The average failure time is 1.5 years
+
+\hypertarget{b-9}{%
+\subsection{b}\label{b-9}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\(Var(X) = E[X^2] - E[X]^2\)
+
+\(E[X^2] = \int \limits_1^\infty x^2\frac{3}{x^4} = 3\int \limits_1^\infty \frac{1}{x^2} = -3x^{-1}\Big|^\infty_1 = 3\)
+
+\(Var(X) = 3 - 1.5^2 = 0.75\)
+
+The variance is 0.75 years\^{}2
+
+\hypertarget{c-3}{%
+\subsection{c}\label{c-3}}
+
+\begin{longtable}[]{@{}l@{}}
+\toprule
+\endhead
+\begin{minipage}[t]{0.48\columnwidth}\raggedright
+The general form of the Pareto distribution is given by\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.48\columnwidth}\raggedright
+\(\frac{\beta\alpha^\beta}{x^{\beta+1}}\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.48\columnwidth}\raggedright
+\(E[X] = \int \limits_\alpha^\infty x\frac{\beta\alpha^\beta}{x^{\beta+1}} = \beta\alpha^\beta\int \limits_\alpha^\infty \frac{1}{x^{\beta}} = -\frac{\beta\alpha^\beta x^{1-\beta}}{1-\beta}\Big|^\infty_\alpha = \frac{\beta\alpha}{\beta-1}\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.48\columnwidth}\raggedright
+\(E[X^2] = \int \limits_\alpha^\infty x^2\frac{\beta\alpha^\beta}{x^{\beta+1}} = \beta\alpha^\beta\int \limits_\alpha^\infty \frac{1}{x^{\beta-1}} = \frac{\beta\alpha^\beta x^{-\beta+2}}{-\beta+2}\Big|^\infty_\alpha = \frac{\beta\alpha^2}{\beta-2}\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.48\columnwidth}\raggedright
+\(Var(X) = E[X^2] - E[X]^2 = \frac{\beta\alpha^2}{\beta-2} - \Big(\frac{\beta\alpha}{\beta-1}\Big)^2\)\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.48\columnwidth}\raggedright
+\# Problem 18\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{a-10}{%
+\subsection{a}\label{a-10}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+The expected value can be calculated as
+
+\(E[X] = Win*Prob + Loss*(1-Prob)\)
+
+Where in this instance we assume a fair coin (\(Prob = 0.5\)) that has
+flips that are independent (the outcome of one does not effect the
+outcome of the other) and there can only be two outcomes - heads or
+tails.
+
+In this example, \(Win = \$1\) and \(Loss = -\$1\), such that
+
+\(E[X] = \$1* 0.5 -\$1*0.5 = 0\)
+
+On a long enough timeframe, regardless of the number of tosses, we
+expect the true mean to be 0 - we will neither win nor lose.
+
+\hypertarget{b-10}{%
+\subsection{b}\label{b-10}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\(Var(X) = E[X^2] - E[X]^2\)
+
+\(E[X^2] = \$1^2*0.5+(-\$1)^2*0.5 = \$^21\)
+
+\(E[X]^2 = 0\)
+
+\(Var(X) = \$^21\)
+
+\hypertarget{c-4}{%
+\subsection{c}\label{c-4}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+In the case that \(p = 0.4\),
+
+\(E[X] = \$1* 0.4 -\$1*0.6 = -\$0.2\)
+
+\(E[X^2] = \$1^2*0.4+(-\$1)^2*0.6 = \$^21\)
+
+\(E[X]^2 = \$^20.04\)
+
+\(Var(X) = \$^20.96\)
+
+\hypertarget{problem-19}{%
+\section{Problem 19}\label{problem-19}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{a-11}{%
+\subsection{a}\label{a-11}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{temp <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{sample}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{6}\NormalTok{, }\DecValTok{1000} \OperatorTok{*}\StringTok{ }\DecValTok{10}\NormalTok{, }\DataTypeTok{replace =}\NormalTok{ T), }\DecValTok{1000}\NormalTok{)}
+\NormalTok{xBar <-}\StringTok{ }\KeywordTok{apply}\NormalTok{(temp, }\DecValTok{1}\NormalTok{, mean)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(xBar, }\DataTypeTok{breaks =} \DecValTok{100}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{/Users/kaiaragaki/Documents/github-repos/Biostats_140.651.01/output/hw_2_files/figure-latex/unnamed-chunk-14-1}
+
+\hypertarget{b-11}{%
+\subsection{b}\label{b-11}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{(xBar)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3.4929
+\end{verbatim}
+
+The mean of \texttt{xBar} is close to the expectation value for a die.
+We would expect this to be true since the expectation value for a die is
+indeed 3.5. When we we take samples with replacement from any
+distribution and take the means, the means tend to be normally
+distributed, and the mean of means tends to be centered on the mean of
+the original population. This is due to the central limit.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sd}\NormalTok{(xBar)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5398621
+\end{verbatim}
+
+\hypertarget{c-5}{%
+\subsection{c}\label{c-5}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+While the standard deviation might not look familiar, the variance
+could:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sd}\NormalTok{(xBar)}\OperatorTok{^}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.291451
+\end{verbatim}
+
+It looks to be about 1/10th of the true variance of a die
+(\textasciitilde2.9167) - so we can expect the standard deviation to be
+similar to sqrt(var/10):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sqrt}\NormalTok{((}\KeywordTok{sum}\NormalTok{(((}\DecValTok{1}\OperatorTok{:}\DecValTok{6}\NormalTok{)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\DecValTok{6}\NormalTok{) }\OperatorTok{-}\StringTok{ }\FloatTok{3.5}\OperatorTok{^}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5400617
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sd}\NormalTok{(xBar)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5398621
+\end{verbatim}
+
+\hypertarget{problem-20}{%
+\section{Problem 20}\label{problem-20}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\hypertarget{a-12}{%
+\subsection{a}\label{a-12}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{xBar <-}\StringTok{ }\KeywordTok{apply}\NormalTok{(}\KeywordTok{matrix}\NormalTok{(}\KeywordTok{runif}\NormalTok{(}\DecValTok{1000} \OperatorTok{*}\StringTok{ }\DecValTok{10}\NormalTok{), }\DecValTok{1000}\NormalTok{), }\DecValTok{1}\NormalTok{, mean)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{hist}\NormalTok{(xBar, }\DataTypeTok{breaks =} \DecValTok{100}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{/Users/kaiaragaki/Documents/github-repos/Biostats_140.651.01/output/hw_2_files/figure-latex/unnamed-chunk-20-1}
+\#\# b
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{(xBar)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.5008595
+\end{verbatim}
+
+As before, the mean of these means approaches the mean of the
+distribution which it was sampled (the uniform distribution has a mean
+of 0.5). Again this is because of the central limit theorem.
+
+\hypertarget{c-6}{%
+\subsection{c}\label{c-6}}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sd}\NormalTok{(xBar)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.09002335
+\end{verbatim}
+
+Similarly, the reltionship is easier to make if we take the square and
+compare it to the variance of the uniform distribution:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sd}\NormalTok{(xBar)}\OperatorTok{^}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.008104204
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sd}\NormalTok{(}\KeywordTok{runif}\NormalTok{(}\DecValTok{1000} \OperatorTok{*}\StringTok{ }\DecValTok{10}\NormalTok{))}\OperatorTok{^}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.08457111
+\end{verbatim}
+
+Again we note that the variance of this sampling distribution is close
+to \(Var(X)/n\) where \(Var(X)\) is the variance of the distribution
+from which samples are taken, and \(n\) is the number of `groups' that
+are being aggregated into means.
+
+
+
+\end{document}
