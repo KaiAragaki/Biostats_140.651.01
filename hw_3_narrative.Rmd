@@ -148,7 +148,7 @@ $$
 Here, to calculate the maximum likelihood we take the derivative of the pmf with respect to $\theta$ once more, set it to 0, and solve for $\theta$. However, we note that while the constant at the beginning has changed, the rest has not. This will give us the same $\theta$ (ie 0.7). We can plug this value in to get the maximum likelihood:
 
 ```{r}
-ml <- factorial(9)/(factorial(2)*factorial(7))*0.3^3*0.7^7
+ml <- factorial(9)/(factorial(2)*factorial(6))*0.3^3*0.7^7
 ml
 ```
 
@@ -165,7 +165,7 @@ scalar
 ```
 ```{r, tidy = FALSE}
 theta <- seq(0, 1, by = 0.01)
-likelihood <- scalar*factorial(9)/(factorial(2)*factorial(7))*theta^7*(1-theta)^(3)  
+likelihood <- scalar*factorial(9)/(factorial(2)*factorial(6))*theta^7*(1-theta)^(3)  
 dat <- tibble(theta, likelihood)
 ggplot(dat, aes(theta, likelihood)) +
         geom_line() + 
@@ -174,11 +174,11 @@ ggplot(dat, aes(theta, likelihood)) +
 
 We see that this likelihood (and the comparison to the likelihood at $\theta = 0.7$) is identical to that of the previous distribution.
 
+# e
 
+------------------------------------------------------------------------
 
 To calculate the probability under the assumption of a new mass function, we again add probabilities - this time for 10 trials, 11 trials, etc...
-
-
 
 ```{r, tidy = FALSE}
 running_sum <- 0
@@ -201,3 +201,4 @@ mean(vec)
 Which is very similar to the value that we found.
 
 We note that this probability is lower that in the case where we set out to flip 10 times and then tallied up how many tails we have.
+
